@@ -77,11 +77,11 @@ namespace MenuTest.Entrees
         {
             DinoNuggets dn = new DinoNuggets();
             dn.AddNugget();
-            Assert.Equal(dn.Calories, 59*7);
+            Assert.Equal(dn.Calories, (uint) 59*7);
             dn.AddNugget();
-            Assert.Equal(dn.Calories, 59*8);
+            Assert.Equal(dn.Calories, (uint) 59 *8);
             dn.AddNugget();
-            Assert.Equal(dn.Calories, 59*9);
+            Assert.Equal(dn.Calories, (uint) 59 *9);
         }
     }
 }

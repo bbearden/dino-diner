@@ -20,7 +20,7 @@ namespace DinoDiner.Menu.Entrees
         {
             get
             {
-                List<string> ingredients = new List<string>() { "Bread" };
+                List<string> ingredients = new List<string>() { "Steakburger Pattie" , "Steakburger Pattie" , "Steakburger Pattie" };
                 if (bun) ingredients.Add("Whole Wheat Bun");
                 if (lettuce) ingredients.Add("Lettuce");
                 if (tomato) ingredients.Add("Tomato");
@@ -39,14 +39,44 @@ namespace DinoDiner.Menu.Entrees
             this.Calories = 728;
         }
 
-        public void HoldPeanutButter()
+        public void HoldBun()
         {
-            this.peanutButter = false;
+            this.bun = false;
         }
 
-        public void HoldJelly()
+        public void HoldLettuce()
         {
-            this.jelly = false;
+            this.lettuce = false;
+        }
+
+        public void HoldTomato()
+        {
+            this.tomato = false;
+        }
+
+        public void HoldOnion()
+        {
+            this.onion = false;
+        }
+
+        public void HoldPickle()
+        {
+            this.pickle = false;
+        }
+
+        public void HoldKetchup()
+        {
+            this.ketchup = false;
+        }
+
+        public void HoldMustard()
+        {
+            this.mustard = false;
+        }
+
+        public void HoldMayo()
+        {
+            this.mayo = false;
         }
     }
 }
