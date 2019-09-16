@@ -1,0 +1,408 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Menu</name>
+    </assembly>
+    <members>
+        <member name="T:DinoDiner.Menu.Entrees.Brontowurst">
+            <summary>
+            Menu order for Brontowurst
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.Brontowurst.Bun">
+            <summary>
+            Indicates if the bun is apart of the Brontowurst
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.Brontowurst.Peppers">
+            <summary>
+            Indicates if peppers are on the Brontowurst
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.Brontowurst.Onion">
+            <summary>
+            Indicates if an onion is on the Brontowurst
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.Brontowurst.Price">
+            <summary>
+            Accessor that gets and sets the price of the Brontowurst
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.Brontowurst.Calories">
+            <summary>
+            Accessor that gets and sets the calories of the Brontowurst
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.Brontowurst.Ingredients">
+            <summary>
+            List accessor with set and removeable ingredients
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.Brontowurst.#ctor">
+            <summary>
+            The price and calories of the Brontowurst
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.Brontowurst.HoldBun">
+            <summary>
+            Holds the bun if requested
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.Brontowurst.HoldPeppers">
+            <summary>
+            Holds the peppers if requested
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.Brontowurst.HoldOnion">
+            <summary>
+            Holds the onion if requested
+            </summary>
+        </member>
+        <member name="T:DinoDiner.Menu.Entrees.DinoNuggets">
+            <summary>
+            Menu order for DinoNuggets
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.DinoNuggets.Price">
+            <summary>
+            Accessor that gets and sets the price of the nuggets
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.DinoNuggets.Calories">
+            <summary>
+            Accessor that gets and sets the calories of the nuggets
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.DinoNuggets.Ingredients">
+            <summary>
+            List accessor that has a minimum of 6 nuggets in the order 
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.DinoNuggets.#ctor">
+            <summary>
+            The Price and Calories of the nuggets
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.DinoNuggets.AddNugget">
+            <summary>
+            Adds nugget(s) if requested
+            </summary>
+        </member>
+        <member name="T:DinoDiner.Menu.Entrees.PrehistoricPBJ">
+            <summary>
+            Menu order for PrehistoricPBJ
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.PrehistoricPBJ.PeanutButter">
+            <summary>
+            Indicates if peanut butter is on the PBJ
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.PrehistoricPBJ.Jelly">
+            <summary>
+            Indicates if Jelly is on the PBJ
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.PrehistoricPBJ.Price">
+            <summary>
+            Accessor that gets and sets the price of the PBJ
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.PrehistoricPBJ.Calories">
+            <summary>
+            Accessor that gets and sets teh calories of the PBJ
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.PrehistoricPBJ.Ingredients">
+            <summary>
+            List accessor that has set and removeable ingredients
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.PrehistoricPBJ.#ctor">
+            <summary>
+            The price and caloriies of the PBJ
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.PrehistoricPBJ.HoldPeanutButter">
+            <summary>
+            Holds the peanut butter if requested
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.PrehistoricPBJ.HoldJelly">
+            <summary>
+            Holds the jelly if requested
+            </summary>
+        </member>
+        <member name="T:DinoDiner.Menu.Entrees.PterodactylWings">
+            <summary>
+            Menu order for PterodactylWings
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.PterodactylWings.Price">
+            <summary>
+            Accessor that gets and sets the price of the wings
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.PterodactylWings.Calories">
+            <summary>
+            Accessor that gets and sets the calories of the wings
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.PterodactylWings.Ingredients">
+            <summary>
+            List accesor with the ingredients of the wings
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.PterodactylWings.#ctor">
+            <summary>
+            The price and calories of the wings
+            </summary>
+        </member>
+        <member name="T:DinoDiner.Menu.Entrees.SteakosaurusBurger">
+            <summary>
+            Menu order for StekosaurusBurger
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.SteakosaurusBurger.Bun">
+            <summary>
+            Indicates if the bus is on the burger
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.SteakosaurusBurger.Pickle">
+            <summary>
+            Indicates if pickles are on the burger
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.SteakosaurusBurger.Ketchup">
+            <summary>
+            Indicates if ketchup is on the burger
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.SteakosaurusBurger.Mustard">
+            <summary>
+            Indicates if mustard is on the burger
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.SteakosaurusBurger.Price">
+            <summary>
+            Accessor that gets and sets the price of the burger
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.SteakosaurusBurger.Calories">
+            <summary>
+            Accessor that gets and sets the calories of the burger
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.SteakosaurusBurger.Ingredients">
+            <summary>
+            List accessor that has set and removeable ingredients
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.SteakosaurusBurger.#ctor">
+            <summary>
+            The price and calories of the burger
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.SteakosaurusBurger.HoldBun">
+            <summary>
+            Holds the bun if requested
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.SteakosaurusBurger.HoldPickle">
+            <summary>
+            Holds the pickle if requested
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.SteakosaurusBurger.HoldKetchup">
+            <summary>
+            Holds the ketchup if requested
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.SteakosaurusBurger.HoldMustard">
+            <summary>
+            Holds the mustard if requested
+            </summary>
+        </member>
+        <member name="T:DinoDiner.Menu.Entrees.TRexKingBurger">
+            <summary>
+            Menu order for TRExBurgerKing
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.TRexKingBurger.Bun">
+            <summary>
+            Indicates if the bun is on the burger
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.TRexKingBurger.Lettcue">
+            <summary>
+            Indicates if lettuce is on the burger
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.TRexKingBurger.Tomato">
+            <summary>
+            Indicates if a tomato is on the burger
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.TRexKingBurger.Onion">
+            <summary>
+            Indicates if an onion is on the burger
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.TRexKingBurger.Pickle">
+            <summary>
+            indicates if a pickle is on the burger
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.TRexKingBurger.Ketchup">
+            <summary>
+            Indicates if ketchup is on the burger
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.TRexKingBurger.Mustard">
+            <summary>
+            Indicates if mustard is on the burger
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.TRexKingBurger.Mayo">
+            <summary>
+            Indicates if mayo is on the burger
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.TRexKingBurger.Price">
+            <summary>
+            Accessor that gets and sets the price of the burger
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.TRexKingBurger.Calories">
+            <summary>
+            Accessor that gets and sets the price of the burger
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.TRexKingBurger.Ingredients">
+            <summary>
+            List accessor of strings that has set and removeable ingresients
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.#ctor">
+            <summary>
+            The price and callories of the wrap
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.HoldBun">
+            <summary>
+            Holds the bun if requested
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.HoldLettuce">
+            <summary>
+            Holds the lettuce if requested
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.HoldTomato">
+            <summary>
+            Holds the tomato if requested
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.HoldOnion">
+            <summary>
+            Holds the onion if requested
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.HoldPickle">
+            <summary>
+            Holds the pickle if requested
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.HoldKetchup">
+            <summary>
+            Holds the ketchupo if requested
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.HoldMustard">
+            <summary>
+            Holds mustard if requested
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.HoldMayo">
+            <summary>
+            Holds the mayo if requested
+            </summary>
+        </member>
+        <member name="T:DinoDiner.Menu.Entrees.VelociWrap">
+            <summary>
+            Menu order for VelociWrap 
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.VelociWrap.Lettuce">
+            <summary>
+            Indicates if lettuce is on the wrap 
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.VelociWrap.Dressing">
+            <summary>
+            Indicates if dressing is on the wrap
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Entrees.VelociWrap.Cheese">
+            <summary>
+            Indicates if cheese is on the wrap
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.VelociWrap.Price">
+            <summary>
+            Accessor allowing to get or set the price of the wrap
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.VelociWrap.Calories">
+            <summary>
+            Accessor allowing to get or set the calories of the wrap
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.VelociWrap.Ingredients">
+            <summary>
+            List accessor that has set and removable ingredients on the wrap
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.VelociWrap.#ctor">
+            <summary>
+            Price and calories of the wrap
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.VelociWrap.HoldLettuce">
+            <summary>
+            Holds the lettuce if requested
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.VelociWrap.HoldDressing">
+            <summary>
+            Holds dressing if requested
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.VelociWrap.HoldCheese">
+            <summary>
+            Holds the cheese if requested
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sides.Side.Price">
+            <summary>
+            Gets and sets the price
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sides.Side.Calories">
+            <summary>
+            Gets and sets the calories
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sides.Side.Ingredients">
+            <summary>
+            Gets the ingredients list
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sides.Side.Size">
+            <summary>
+            Gets or sets the size
+            </summary>
+        </member>
+    </members>
+</doc>
