@@ -10,29 +10,8 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Menu order for DinoNuggets
     /// </summary>
-    public class DinoNuggets
-    {
-        /// <summary>
-        /// Accessor that gets and sets the price of the nuggets
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// Accessor that gets and sets the calories of the nuggets
-        /// </summary>
-        public uint Calories { get; set; }
-        
-        /// <summary>
-        /// List accessor that has a minimum of 6 nuggets in the order 
-        /// </summary>
-        public List<string> Ingredients
-        {
-            get
-            {
-                List<string> ingredients = new List<string>() { "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", };
-                return ingredients;
-            }
-        }
-
+    public class DinoNuggets : Entree
+    {  
         /// <summary>
         /// The Price and Calories of the nuggets
         /// </summary>
@@ -40,6 +19,12 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 4.25;
             this.Calories = 59*6;
+            ingredients.Add("Chicken Nugget");
+            ingredients.Add("Chicken Nugget");
+            ingredients.Add("Chicken Nugget");
+            ingredients.Add("Chicken Nugget");
+            ingredients.Add("Chicken Nugget");
+            ingredients.Add("Chicken Nugget");
         }
 
         /// <summary>

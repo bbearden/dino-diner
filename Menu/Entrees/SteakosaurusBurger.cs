@@ -9,7 +9,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Menu order for StekosaurusBurger
     /// </summary>
-    public class SteakosaurusBurger
+    public class SteakosaurusBurger : Entree
     {
         /// <summary>
         /// Indicates if the bus is on the burger
@@ -29,22 +29,12 @@ namespace DinoDiner.Menu.Entrees
         private bool Mustard = true;
 
         /// <summary>
-        /// Accessor that gets and sets the price of the burger
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// Accessor that gets and sets the calories of the burger
-        /// </summary>
-        public uint Calories { get; set; }
-
-        /// <summary>
         /// List accessor that has set and removeable ingredients
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
-                List<string> ingredients = new List<string>() { "Steakburger Pattie" };
                 if (Bun) ingredients.Add("Whole Wheat Bun");
                 if (Pickle) ingredients.Add("Pickle");
                 if (Ketchup) ingredients.Add("Ketchup");
@@ -60,6 +50,7 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 5.15;
             this.Calories = 621;
+            ingredients.Add("Steakburger Pattie");
         }
 
         /// <summary>

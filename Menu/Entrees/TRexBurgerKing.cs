@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Menu order for TRExBurgerKing
     /// </summary>
-    public class TRexKingBurger
+    public class TRexKingBurger : Entree
     {
         /// <summary>
         /// Indicates if the bun is on the burger
@@ -46,22 +46,12 @@ namespace DinoDiner.Menu.Entrees
         private bool Mayo = true;
 
         /// <summary>
-        /// Accessor that gets and sets the price of the burger
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// Accessor that gets and sets the price of the burger
-        /// </summary>
-        public uint Calories { get; set; }
-
-        /// <summary>
         /// List accessor of strings that has set and removeable ingresients
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
-                List<string> ingredients = new List<string>() { "Steakburger Pattie" , "Steakburger Pattie" , "Steakburger Pattie" };
                 if (Bun) ingredients.Add("Whole Wheat Bun");
                 if (Lettcue) ingredients.Add("Lettuce");
                 if (Tomato) ingredients.Add("Tomato");
@@ -79,8 +69,11 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public TRexKingBurger()
         {
-            this.Price = 8.45;
-            this.Calories = 728;
+            Price = 8.45;
+            Calories = 728;
+            ingredients.Add("Steakburger Pattie");
+            ingredients.Add("Steakburger Pattie");
+            ingredients.Add("Steakburger Pattie");
         }
 
         /// <summary>

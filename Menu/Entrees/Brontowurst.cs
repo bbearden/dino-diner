@@ -9,7 +9,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Menu order for Brontowurst
     /// </summary>
-    public class Brontowurst
+    public class Brontowurst : Entree
     {
         /// <summary>
         /// Indicates if the bun is apart of the Brontowurst
@@ -25,22 +25,12 @@ namespace DinoDiner.Menu.Entrees
         private bool Onion = true;
 
         /// <summary>
-        /// Accessor that gets and sets the price of the Brontowurst
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// Accessor that gets and sets the calories of the Brontowurst
-        /// </summary>
-        public uint Calories { get; set; }
-
-        /// <summary>
         /// List accessor with set and removeable ingredients
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
-                List<string> ingredients = new List<string>() { "Brautwurst" };
                 if (Bun) ingredients.Add("Whole Wheat Bun");
                 if (Peppers) ingredients.Add("Peppers");
                 if (Onion) ingredients.Add("Onion");
@@ -55,6 +45,7 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 5.36;
             this.Calories = 498;
+            ingredients.Add("Brautwurst");
         }
 
         /// <summary>

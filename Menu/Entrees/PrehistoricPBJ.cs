@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Menu order for PrehistoricPBJ
     /// </summary>
-    public class PrehistoricPBJ
+    public class PrehistoricPBJ : Entree
     {
         /// <summary>
         /// Indicates if peanut butter is on the PBJ
@@ -22,35 +22,13 @@ namespace DinoDiner.Menu.Entrees
         private bool Jelly = true;
 
         /// <summary>
-        /// Accessor that gets and sets the price of the PBJ
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// Accessor that gets and sets teh calories of the PBJ
-        /// </summary>
-        public uint Calories { get; set; }
-
-        /// <summary>
-        /// List accessor that has set and removeable ingredients
-        /// </summary>
-        public List<string> Ingredients
-        {
-            get
-            {
-                List<string> ingredients = new List<string>() { "Bread" };
-                if (PeanutButter) ingredients.Add("Peanut Butter");
-                if (Jelly) ingredients.Add("Jelly");
-                return ingredients;
-            }
-        }
-
-        /// <summary>
-        /// The price and caloriies of the PBJ
+        /// constructor setting initial price, calories, and List of ingredients from Entree base class
         /// </summary>
         public PrehistoricPBJ()
         {
-            this.Price = 6.52;
-            this.Calories = 483;
+            Price = 6.52;
+            Calories = 483;
+            ingredients.Add("Bread");
         }
 
         /// <summary>
@@ -67,6 +45,19 @@ namespace DinoDiner.Menu.Entrees
         public void HoldJelly()
         {
             this.Jelly = false;
+        }
+
+        /// <summary>
+        /// overrides Ingredients List from Entree base class to specify ingredients on order
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                if (PeanutButter) ingredients.Add("Peanut Butter");
+                if (Jelly) ingredients.Add("Jelly");
+                return ingredients;
+            }
         }
     }
 }

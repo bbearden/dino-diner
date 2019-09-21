@@ -1,6 +1,6 @@
-﻿/* Triceritops.cs
+﻿/* MezzorellaSticks.cs
  * Author: Branden Bearden
- */
+ */ 
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,9 +8,9 @@ using System.Text;
 namespace DinoDiner.Menu.Sides
 {
     /// <summary>
-    /// Side order for Triceritots inheriting Side base class
+    /// Side order for Mezzorella Sticks inheriting Side base class
     /// </summary>
-    public class Triceritots : Side
+    public class MezzorellaSticks : Side
     {
         /// <summary>
         /// Declaring Size enum from Side base class
@@ -18,7 +18,7 @@ namespace DinoDiner.Menu.Sides
         private Size size;
 
         /// <summary>
-        /// Accessor from Side base class getting and setting the price and calories based on the size of the order
+        /// Accessor from Size base class getting and setting price and calories based on the size
         /// </summary>
         public override Size Size
         {
@@ -29,20 +29,19 @@ namespace DinoDiner.Menu.Sides
                 {
                     case Size.Small:
                         Price = 0.99;
-                        Calories = 352;
+                        Calories = 540;
                         break;
                     case Size.Medium:
                         Price = 1.45;
-                        Calories = 410;
+                        Calories = 610;
                         break;
                     case Size.Large:
                         Price = 1.95;
-                        Calories = 590;
+                        Calories = 720;
                         break;
                 }
             }
-
-           get
+            get
             {
                 return size;
             }
@@ -51,13 +50,13 @@ namespace DinoDiner.Menu.Sides
         /// <summary>
         /// Constructor setting initial price, calories, and ingredients from Side base class
         /// </summary>
-        public Triceritots()
+        public MezzorellaSticks()
         {
             Price = .99;
-            Calories = 352;
-            ingredients.Add("Potato");
-            ingredients.Add("Salt");
-            ingredients.Add("Vegetable Oil");
+            Calories = 540;
+            Ingredients.Add("Cheese Product");
+            Ingredients.Add("Breading");
+            Ingredients.Add("Vegetable Oil");
 
         }
     }
