@@ -8,15 +8,6 @@ using System.Text;
  
 namespace DinoDiner.Menu.Sides
 {
-    /// <summary>
-    /// enum of sizes small, medium, and large
-    /// </summary>
-    public enum Size
-    {
-        Small,
-        Medium, 
-        Large
-    }
 
     /// <summary>
     /// Abstract side class including Price, Calories, Ingredients, and Size

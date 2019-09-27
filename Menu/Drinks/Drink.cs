@@ -17,7 +17,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets the ingredient list
         /// </summary>
-        protected List<string> Ingredients { get; }
+        public virtual List<string> Ingredients { get; }
         
         /// <summary>
         /// Gets and sets the price
