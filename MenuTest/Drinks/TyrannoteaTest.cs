@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* TyrannoteaTest.cs
+ * Author: Branden Bearden
+ */ 
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu.Drinks;
@@ -14,7 +18,7 @@ namespace MenuTest.Drinks
         public void ShouldHaveCorrectDefaultPrice()
         {
             Tyrannotea tea = new Tyrannotea();
-            Assert.Equal<double>(1.50, tea.Price);
+            Assert.Equal<double>(.99, tea.Price);
         }
 
         [Fact]
@@ -31,35 +35,78 @@ namespace MenuTest.Drinks
             Assert.Equal<Size>(Size.Small, tea.Size);
         }
 
+        [Fact]
+        public void ShouldHaveCorrectDefaultCalories()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.Equal<uint>(8, tea.Calories);
+        }
+
+        [Fact]
+        public void ShouldHaveDefaultSweetener()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.False(tea.Sweetener);
+        }
+
+        [Fact]
+        public void ShouldHaveDefaultLemon()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.False(tea.Lemon);
+        }
+
         //The correct price and calories after changing to small, medium, and large sizes.
         [Fact]
-        public void ShouldHaveCorrectPriceAndCaloriesAfterSettingSmall()
+        public void ShouldHaveCorrectPriceAfterSettingSmall()
         {
             Tyrannotea tea = new Tyrannotea();
             tea.Size = Size.Medium;
             tea.Size = Size.Small;
             Assert.Equal<double>(.99, tea.Price);
+        }
+
+        [Fact]
+        public void ShouldUseCorrectCaloriesAfterSettingSmall()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Medium;
+            tea.Size = Size.Small;
             Assert.Equal<uint>(8, tea.Calories);
         }
 
         [Fact]
-        public void ShouldHaveCorrectPriceAndCaloriesAfterSettingMedium()
+        public void ShouldHaveCorrectPriceAfterSettingMedium()
         {
 
             Tyrannotea tea = new Tyrannotea();
             tea.Size = Size.Medium;
             Assert.Equal<double>(1.49, tea.Price);
+        }
+
+        [Fact]
+        public void ShouldUseCorrectCaloriesAfterSettingMedium()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Medium;
             Assert.Equal<uint>(16, tea.Calories);
         }
 
         [Fact]
-        public void ShouldHaveCorrectPriceAndCaloriesAfterSettingLarge()
+        public void ShouldHaveCorrectPriceAfterSettingLarge()
         {
             Tyrannotea tea = new Tyrannotea();
             tea.Size = Size.Large;
             Assert.Equal<double>(1.99, tea.Price);
-            Assert.Equal<uint>(32, tea.Calories);
 
+        }
+
+        [Fact]
+        public void ShouldUseCorrectCaloriesAfterSettingLarge()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Large;
+            Assert.Equal<uint>(32, tea.Calories);
         }
 
         //That invoking HoldIce() results in the Ice property being false
@@ -77,7 +124,7 @@ namespace MenuTest.Drinks
         {
             Tyrannotea tea = new Tyrannotea();
             tea.AddLemon();
-            Assert.Contains<string>("Lemon", tea.Ingredients);
+            Assert.True(tea.Lemon);
         }
 
         //That setting the sweet property to true results in the right calories for each size
@@ -150,7 +197,19 @@ namespace MenuTest.Drinks
             Tyrannotea tea = new Tyrannotea();
             List<string> ingredients = tea.Ingredients;
             Assert.Contains<string>("Water", tea.Ingredients);
-            Assert.Contains<string>("Natural Flavors", tea.Ingredients);
+            Assert.Contains<string>("Tea", tea.Ingredients);
+        }
+
+        [Fact]
+        public void ShouldContainAllIngredientsSpecified()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            List<string> ingredients = tea.Ingredients;
+            tea.AddLemon();
+            tea.AddSweetener();
+            Assert.Contains<string>("Water", tea.Ingredients);
+            Assert.Contains<string>("Tea", tea.Ingredients);
+            Assert.Contains<string>("Lemon", tea.Ingredients);
             Assert.Contains<string>("Cane Sugar", tea.Ingredients);
         }
     }

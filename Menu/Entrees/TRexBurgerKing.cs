@@ -46,7 +46,7 @@ namespace DinoDiner.Menu.Entrees
         private bool Mayo = true;
 
         /// <summary>
-        /// List accessor of strings that has set and removeable ingresients
+        /// List accessor of strings that has set and removeable ingredients
         /// </summary>
         public override List<string> Ingredients
         {
