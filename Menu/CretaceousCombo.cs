@@ -97,7 +97,7 @@ namespace DinoDiner.Menu
         {
             Entree = entree;
             Side = new Fryceritops();
-            Drink = new Sodasaurus();
+            Drink = new Tyrannotea();
 
         }
     }

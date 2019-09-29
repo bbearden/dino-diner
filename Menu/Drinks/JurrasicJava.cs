@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public class Tyrannotea : Drink
+    public class JurrasicJava : Drink
     {
         /// <summary>
         /// Declaring size enum
@@ -14,12 +14,12 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// tells if the tea is sweet or not
         /// </summary>
-        public bool Sweetener { get; set; } = false;
+        public bool RoomForCream { get; set; } = false;
 
         /// <summary>
         /// tells if there is lemon in the drink, initially false
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        public bool Decaf { get; set; } = false;
 
         /// <summary>
         /// Sets the price of the drink based on the size
@@ -32,54 +32,43 @@ namespace DinoDiner.Menu.Drinks
                 size = value;
                 if (size == Size.Small)
                 {
-                    Price = .99;
-                    if (Sweetener) Calories = 16;
-                    else Calories = 8;
-                    
+                    Price = .59;
+                    Calories = 2;
+
                 }
                 else if (size == Size.Medium)
                 {
-                    Price = 1.49;
-                    if (Sweetener) Calories = 32;
-                    else Calories = 16;
+                    Price = .99;
+                    Calories = 4;
                 }
                 else if (size == Size.Large)
                 {
-                    Price = 1.99;
-                    if (Sweetener) Calories = 64;
-                    else Calories = 32;
+                    Price = 1.49;
+                    Calories = 8;
                 }
-            }
-        }
-
-
-        public override List<string> Ingredients
-        {
-            get
-            {
-                if(Lemon) ingredients.Add("Lemon");
-                if(Sweetener) ingredients.Add("Cane Sugar");
-                return ingredients;
             }
         }
 
         /// <summary>
         /// Constructor setting inital drink characteristics
         /// </summary>
-        public Tyrannotea()
+        public JurrasicJava()
         {
             this.Size = Size.Small;
             ingredients.Add("Water");
+            ingredients.Add("Coffee");
         }
 
-        public void AddLemon()
+        public void LeaveRoomForCream()
         {
-            Lemon = true;
+            RoomForCream = true;
         }
 
-        public void AddSweetener()
+        public void AddIce()
         {
-            Sweetener = true;
+            Ice = true;
         }
+
+        //Add make decaf class?????????????????
     }
 }
