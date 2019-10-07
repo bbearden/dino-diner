@@ -5,7 +5,7 @@
 using System.Collections.Generic;
 
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Menu order for DinoNuggets
@@ -18,13 +18,24 @@ namespace DinoDiner.Menu.Entrees
         public DinoNuggets()
         {
             this.Price = 4.25;
-            this.Calories = 59*6;
-            ingredients.Add("Chicken Nugget");
-            ingredients.Add("Chicken Nugget");
-            ingredients.Add("Chicken Nugget");
-            ingredients.Add("Chicken Nugget");
-            ingredients.Add("Chicken Nugget");
-            ingredients.Add("Chicken Nugget");
+            this.Calories = 59*6; 
+        }
+
+        /// <summary>
+        /// Ingredients for DinoNuggets
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                ingredients.Add("Chicken Nugget");
+                ingredients.Add("Chicken Nugget");
+                ingredients.Add("Chicken Nugget");
+                ingredients.Add("Chicken Nugget");
+                ingredients.Add("Chicken Nugget");
+                ingredients.Add("Chicken Nugget");
+                return ingredients;
+            }
         }
 
         /// <summary>
@@ -35,6 +46,15 @@ namespace DinoDiner.Menu.Entrees
             this.Price += .25;
             this.Calories += 59;
             this.Ingredients.Add("Chicken Nugget");
+        }
+
+        /// <summary>
+        /// The name of the order
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Dino-Nuggets";
         }
     }
 }

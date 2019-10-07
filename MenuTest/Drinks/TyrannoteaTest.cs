@@ -5,7 +5,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Drinks;
 using DinoDiner.Menu;
 using Xunit;
 
@@ -46,7 +45,7 @@ namespace MenuTest.Drinks
         public void ShouldHaveDefaultSweetener()
         {
             Tyrannotea tea = new Tyrannotea();
-            Assert.False(tea.Sweetener);
+            Assert.False(tea.Sweet);
         }
 
         [Fact]
@@ -163,7 +162,7 @@ namespace MenuTest.Drinks
         {
             Tyrannotea tea = new Tyrannotea();
             tea.AddSweetener();
-            tea.Sweetener = false;
+            tea.Sweet = false;
             tea.Size = Size.Small;
             Assert.Equal<uint>(8, tea.Calories);
         }
@@ -174,7 +173,7 @@ namespace MenuTest.Drinks
         {
             Tyrannotea tea = new Tyrannotea();
             tea.AddSweetener();
-            tea.Sweetener = false;
+            tea.Sweet = false;
             tea.Size = Size.Medium;
             Assert.Equal<uint>(16, tea.Calories);
         }
@@ -185,7 +184,7 @@ namespace MenuTest.Drinks
         {
             Tyrannotea tea = new Tyrannotea();
             tea.AddSweetener();
-            tea.Sweetener = false;
+            tea.Sweet = false;
             tea.Size = Size.Large;
             Assert.Equal<uint>(32, tea.Calories);
         }

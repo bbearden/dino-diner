@@ -1,4 +1,4 @@
-﻿/* JurrasicJave.cs
+﻿/* JurassicJave.cs
  * Author: Branden Bearden
  */ 
 
@@ -6,12 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Menu order for JurrasicJava (coffee)
     /// </summary>
-    public class JurrasicJava : Drink
+    public class JurassicJava : Drink
     {
 
         /// <summary>
@@ -60,12 +60,22 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Constructor setting inital drink characteristics
         /// </summary>
-        public JurrasicJava()
+        public JurassicJava()
         {
             this.Size = Size.Small;
             Ice = false;
-            ingredients.Add("Water");
-            ingredients.Add("Coffee");
+        }
+
+        /// <summary>
+        /// ingredients of Jurassic java
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>() { "Water", "Coffee" };
+                return ingredients;
+            }
         }
 
         /// <summary>
@@ -82,6 +92,22 @@ namespace DinoDiner.Menu.Drinks
         public void AddIce()
         {
             Ice = true;
+        }
+
+        /// <summary>
+        /// The name of the order
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            if (Decaf)
+            {
+                return Size + " Decaf Jurassic Java";
+            }
+            else
+            {
+                return Size + " Jurassic Java";
+            }
         }
     }
 }

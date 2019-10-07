@@ -6,12 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Menu order for water
     /// </summary>
-    public class Water: Drink
+    public class Water : Drink
     {
         /// <summary>
         /// Declaring size enum
@@ -29,6 +29,7 @@ namespace DinoDiner.Menu.Drinks
         public override Size Size
         {
             get { return size; }
+            set { size = value; }
         }
 
         /// <summary>
@@ -38,6 +39,7 @@ namespace DinoDiner.Menu.Drinks
         {
             get
             {
+                List<string> ingredients = new List<string>() { "Water" };
                 if (Lemon) ingredients.Add("Lemon");
                 return ingredients;
             }
@@ -48,9 +50,9 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public Water()
         {
+            Size = Size.Small;
             Price = .10;
             Calories = 0;
-            ingredients.Add("Water");
         }
 
         /// <summary>
@@ -61,5 +63,14 @@ namespace DinoDiner.Menu.Drinks
             Lemon = true;
         }
 
+        /// <summary>
+        /// The name of the order
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Size + " Water";
+
+        }
     }
 }

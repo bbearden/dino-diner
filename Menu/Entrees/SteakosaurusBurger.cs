@@ -4,7 +4,7 @@
 
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {   
     /// <summary>
     /// Menu order for StekosaurusBurger
@@ -83,6 +83,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldMustard()
         {
             this.Mustard = false;
+        }
+
+        /// <summary>
+        /// The name of the order
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Steakosaurus Burger";
         }
     }
 }

@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Side order for Triceritots inheriting Side base class
@@ -55,10 +55,28 @@ namespace DinoDiner.Menu.Sides
         {
             Price = .99;
             Calories = 352;
-            ingredients.Add("Potato");
-            ingredients.Add("Salt");
-            ingredients.Add("Vegetable Oil");
+        }
 
+        /// <summary>
+        /// Ingredients for Triceritots
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>() { "Potato", "Salt", "Vegetable Oil" };
+                return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// The name of the order
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Size + " Triceritots";
+            
         }
     }
 }

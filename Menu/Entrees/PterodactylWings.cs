@@ -4,7 +4,7 @@
 
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Menu order for PterodactylWings
@@ -18,8 +18,27 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 7.21;
             this.Calories = 318;
-            ingredients.Add("Chicken");
-            ingredients.Add("Wing Sauce");
+        }
+
+        /// <summary>
+        /// Ingredients for Pterodactyl Wings
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>() { "Chicken", "Wing Sauce" };
+                return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// The name of the order
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Pterodactyl Wings";
         }
     }
 }

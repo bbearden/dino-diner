@@ -4,8 +4,9 @@
 
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
-{   /// <summary>
+namespace DinoDiner.Menu
+{   
+    /// <summary>
     /// Menu order for VelociWrap 
     /// </summary>
     public class VelociWrap : Entree
@@ -71,6 +72,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldCheese()
         {
             this.Cheese = false;
+        }
+
+        /// <summary>
+        /// The name of the order
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Veloci-Wrap";
         }
     }
 }

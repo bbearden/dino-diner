@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
 
    /// <summary>
@@ -65,9 +65,28 @@ namespace DinoDiner.Menu.Drinks
         public Sodasaurus()
         {
             this.Size = Size.Small;
-            ingredients.Add("Water");
-            ingredients.Add("Natural Flavors");
-            ingredients.Add("Cane Sugar");
+        }
+
+        /// <summary>
+        /// Ingredients for Sodasaurus
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
+                return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// The name of the order
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Size + " " + Flavor + " Sodasaurus";
+
         }
     }
 }

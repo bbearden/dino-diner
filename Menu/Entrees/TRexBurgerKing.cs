@@ -5,7 +5,7 @@
 using System.Collections.Generic;
 
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Menu order for TRExBurgerKing
@@ -138,6 +138,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldMayo()
         {
             this.Mayo = false;
+        }
+
+        /// <summary>
+        /// The name of the order
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "T-Rex King Burger";
         }
     }
 }

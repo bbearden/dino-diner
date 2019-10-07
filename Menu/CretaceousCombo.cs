@@ -5,21 +5,29 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Entrees;
-using DinoDiner.Menu.Sides;
-using DinoDiner.Menu.Drinks;
+using DinoDiner.Menu;
 
 
 namespace DinoDiner.Menu
 {
-    public class CretaceousCombo
+    /// <summary>
+    /// Combo class
+    /// </summary>
+    public class CretaceousCombo 
     {
-
+        /// <summary>
+        /// The entree of the combo
+        /// </summary>
         public Entree Entree { get; set; }
 
-
+        /// <summary>
+        /// the side of the combo
+        /// </summary>
         private Side side;
 
+        /// <summary>
+        /// the side and its size for the combo
+        /// </summary>
         public Side Side
         {
             get { return side; }
@@ -30,9 +38,14 @@ namespace DinoDiner.Menu
             }
         }
 
-
+        /// <summary>
+        /// The drink of the combo
+        /// </summary>
         private Drink drink;
 
+        /// <summary>
+        /// The drink and its size for the combo
+        /// </summary>
         public Drink Drink
         {
             get { return drink; }
@@ -65,9 +78,14 @@ namespace DinoDiner.Menu
             }
         }
 
-
+        /// <summary>
+        /// defualt size
+        /// </summary>
         private Size size = Size.Small;
 
+        /// <summary>
+        /// The size of the drink and side
+        /// </summary>
         private Size Size
         {
             get { return size; }
@@ -79,7 +97,9 @@ namespace DinoDiner.Menu
             }
         }
 
-
+        /// <summary>
+        /// the ingredients of the entree, side, and drink making up the combo
+        /// </summary>
         public List<string> Ingredients
         {
             get
@@ -92,13 +112,25 @@ namespace DinoDiner.Menu
             }
         }
 
-
+        /// <summary>
+        /// The combo put together
+        /// </summary>
+        /// <param name="entree"></param>
         public CretaceousCombo(Entree entree)
         {
             Entree = entree;
             Side = new Fryceritops();
             Drink = new Tyrannotea();
 
+        }
+
+        /// <summary>
+        /// The name of the combo
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Entree + " Combo";
         }
     }
 }
