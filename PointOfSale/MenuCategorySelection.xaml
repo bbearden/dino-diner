@@ -17,7 +17,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Click="SelectDrink" Grid.Row="0" Grid.Column="0">Combos</Button>
+        <Button Click="SelectCombo" Grid.Row="0" Grid.Column="0">Combos</Button>
         <Button Click="SelectEntree" Grid.Row="0" Grid.Column="1">Entrees</Button>
         <Button Click="SelectSide" Grid.Row="1" Grid.Column="0">Sides</Button>
         <Button Click="SelectDrink" Grid.Row="1" Grid.Column="1">Drinks</Button>
