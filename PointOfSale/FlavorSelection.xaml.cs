@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* FlavorSelection.xaml.cs
+ * Author: Branden Bearden
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +20,11 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomCombo.xaml
+    /// Interaction logic for FlavorSelection.xaml
     /// </summary>
-    public partial class CustomCombo : Page
+    public partial class FlavorSelection : Page
     {
-        public CustomCombo()
+        public FlavorSelection()
         {
             InitializeComponent();
         }

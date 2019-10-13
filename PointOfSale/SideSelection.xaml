@@ -9,6 +9,51 @@
       Title="SideSelection">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition>
+            </RowDefinition>
+            <RowDefinition>
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition>
+            </ColumnDefinition>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Bottom">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-08.png"></ImageBrush>
+            </Button.Background>
+            <TextBlock FontWeight="ExtraBold">Fryceritops</TextBlock>
+        </Button>
+        <Button Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Bottom">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-09.png"></ImageBrush>
+            </Button.Background>
+            <TextBlock FontWeight="ExtraBold">Metero Mac &amp; Cheese</TextBlock>
+        </Button>
+        <Button Grid.Row="0" Grid.Column="2" VerticalContentAlignment="Bottom">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-10.png"></ImageBrush>
+            </Button.Background>
+            <TextBlock FontWeight="ExtraBold">Mezzorella Sticks</TextBlock>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Bottom">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-11.png"></ImageBrush>
+            </Button.Background>
+            <TextBlock FontWeight="ExtraBold">Triceritots</TextBlock>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="0">
+            <TextBlock FontWeight="ExtraBold">Small</TextBlock>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="1">
+            <TextBlock FontWeight="ExtraBold">Medium</TextBlock>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="2">
+            <TextBlock FontWeight="ExtraBold">Large</TextBlock>
+        </Button>
     </Grid>
 </Page>
