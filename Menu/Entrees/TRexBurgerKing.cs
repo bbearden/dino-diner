@@ -3,15 +3,30 @@
  */ 
 
 using System.Collections.Generic;
-
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Menu order for TRExBurgerKing
     /// </summary>
-    public class TRexKingBurger : Entree
+    public class TRexKingBurger : Entree, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// An event handler for PropertyChanged events
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// notifys if there was a property value changed
+        /// </summary>
+        /// <param name="propertyName">name of property changed</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Indicates if the bun is on the burger
         /// </summary>
@@ -19,7 +34,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Indicates if lettuce is on the burger
         /// </summary>
-        private bool Lettcue = true;
+        private bool Lettuce = true;
         /// <summary>
         /// Indicates if a tomato is on the burger
         /// </summary>
@@ -53,7 +68,7 @@ namespace DinoDiner.Menu
             get
             {
                 if (Bun) ingredients.Add("Whole Wheat Bun");
-                if (Lettcue) ingredients.Add("Lettuce");
+                if (Lettuce) ingredients.Add("Lettuce");
                 if (Tomato) ingredients.Add("Tomato");
                 if (Onion) ingredients.Add("Onion");
                 if (Pickle) ingredients.Add("Pickle");
@@ -82,6 +97,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.Bun = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -89,7 +106,9 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldLettuce()
         {
-            this.Lettcue = false;
+            this.Lettuce = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -98,6 +117,8 @@ namespace DinoDiner.Menu
         public void HoldTomato()
         {
             this.Tomato = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -106,6 +127,8 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             this.Onion = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -114,6 +137,8 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             this.Pickle = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -122,6 +147,8 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             this.Ketchup = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -130,6 +157,8 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             this.Mustard = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -138,6 +167,8 @@ namespace DinoDiner.Menu
         public void HoldMayo()
         {
             this.Mayo = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -147,6 +178,34 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "T-Rex King Burger";
+        }
+
+        /// <summary>
+        /// Gets the description of the order item
+        /// </summary>
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Tells if there is a special request for the order
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Bun) special.Add("Hold Whole Wheat Bun");
+                if (!Lettuce) special.Add("Hold Lettuce");
+                if (!Tomato) special.Add("Hold Tomato");
+                if (!Onion) special.Add("Hold Onion");
+                if (!Pickle) special.Add("Hold Pickle");
+                if (!Ketchup) special.Add("Hold Ketcup");
+                if (!Mustard) special.Add("Hold Mustard");
+                if (!Mayo) special.Add("Hold Mayo");
+                return special.ToArray();
+            }
         }
     }
 }

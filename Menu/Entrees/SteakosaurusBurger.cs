@@ -3,14 +3,30 @@
  */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {   
     /// <summary>
     /// Menu order for StekosaurusBurger
     /// </summary>
-    public class SteakosaurusBurger : Entree
+    public class SteakosaurusBurger : Entree, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// An event handler for PropertyChanged events
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// notifys if there was a property value changed
+        /// </summary>
+        /// <param name="propertyName">name of property changed</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Indicates if the bus is on the burger
         /// </summary>
@@ -59,6 +75,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.Bun = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -67,6 +85,8 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             this.Pickle = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -75,6 +95,8 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             this.Ketchup = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -83,6 +105,8 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             this.Mustard = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -92,6 +116,31 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Steakosaurus Burger";
+        }
+
+
+        /// <summary>
+        /// Gets the description of the order item
+        /// </summary>
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Tells if there is a special request for the order
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Bun) special.Add("Hold Whole Wheat Bun");
+                if (!Pickle) special.Add("Hold Pickle");
+                if (!Ketchup) special.Add("Hold Ketchup");
+                if (!Mustard) special.Add("Hold Mustard");
+                return special.ToArray();
+            }
         }
     }
 }

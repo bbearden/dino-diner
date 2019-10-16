@@ -3,14 +3,30 @@
  */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {   
     /// <summary>
     /// Menu order for VelociWrap 
     /// </summary>
-    public class VelociWrap : Entree
+    public class VelociWrap : Entree, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// An event handler for PropertyChanged events
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// notifys if there was a property value changed
+        /// </summary>
+        /// <param name="propertyName">name of property changed</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Indicates if lettuce is on the wrap 
         /// </summary>
@@ -56,6 +72,8 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this.Lettuce = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -64,6 +82,8 @@ namespace DinoDiner.Menu
         public void HoldDressing()
         {
             this.Dressing = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -72,6 +92,8 @@ namespace DinoDiner.Menu
         public void HoldCheese()
         {
             this.Cheese = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -81,6 +103,30 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Veloci-Wrap";
+        }
+
+
+        /// <summary>
+        /// Gets the description of the order item
+        /// </summary>
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Tells if there is a special request for the order
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Lettuce) special.Add("Hold Romaine Lettuce");
+                if (!Dressing) special.Add("Hold Ceasar Dressing");
+                if (!Cheese) special.Add("Hold Parmesan Cheese");
+                return special.ToArray();
+            }
         }
     }
 }
