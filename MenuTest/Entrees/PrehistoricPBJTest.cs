@@ -48,7 +48,7 @@ namespace MenuTest.Entrees
         }
 
         [Fact]
-        public void DescritionShouldBeCorrect()
+        public void DescriptionShouldBeCorrect()
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
             Assert.Equal("Prehistoric PB&J", pbj.Description);

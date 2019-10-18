@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
 {
     
 
-    public abstract class Drink : IMenuItem
+    public abstract class Drink : IMenuItem, IOrderItem
     {
         protected List<string> ingredients = new List<string>(); //MAYBE
 
@@ -42,6 +42,16 @@ namespace DinoDiner.Menu
         /// Gets and sets the calories
         /// </summary>
         public uint Calories { get; set; }
+
+        /// <summary>
+        /// Gets the description of the order
+        /// </summary>
+        public abstract string Description { get; }
+
+        /// <summary>
+        /// Tells if there is a special request for the order
+        /// </summary>
+        public abstract string[] Special { get; }
 
         /// <summary>
         /// Holds the ice

@@ -12,7 +12,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstract side class including Price, Calories, Ingredients, and Size
     /// </summary>
-    public abstract class Side : IMenuItem
+    public abstract class Side : IMenuItem, IOrderItem
     {
         protected List<string> ingredients = new List<string>();
         /// <summary>
@@ -41,5 +41,14 @@ namespace DinoDiner.Menu
         /// </summary>
         public virtual Size Size { get; set; }
 
+        /// <summary>
+        /// Gets the description of the order
+        /// </summary>
+        public abstract string Description { get; }
+        
+        /// <summary>
+        /// Tells if there is a special request for the order
+        /// </summary>
+        public abstract string[] Special { get; }
     }
 }

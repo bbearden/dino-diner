@@ -57,7 +57,7 @@ namespace MenuTest.Entrees
         }
         
         [Fact]
-        public void DescritionShouldBeCorrect()
+        public void DescriptionShouldBeCorrect()
         {
             Brontowurst bw = new Brontowurst();
             Assert.Equal("Brontowurst", bw.Description);

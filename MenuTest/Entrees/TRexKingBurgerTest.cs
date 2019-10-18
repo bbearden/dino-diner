@@ -108,7 +108,7 @@ namespace MenuTest.Entrees
         }
 
         [Fact]
-        public void DescritionShouldBeCorrect()
+        public void DescriptionShouldBeCorrect()
         {
             TRexKingBurger trex = new TRexKingBurger();
             Assert.Equal("T-Rex King Burger", trex.Description);
