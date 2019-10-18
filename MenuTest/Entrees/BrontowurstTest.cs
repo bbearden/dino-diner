@@ -55,6 +55,109 @@ namespace MenuTest.Entrees
             bw.HoldOnion();
             Assert.DoesNotContain<string>("Onion", bw.Ingredients);
         }
+        
+        [Fact]
+        public void DescritionShouldBeCorrect()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.Equal("Brontowurst", bw.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.Empty(bw.Special);
+        }
+
+        [Fact]
+        public void HoldBunShouldAddToSpecial()
+        {
+            Brontowurst bw = new Brontowurst();
+            bw.HoldBun();
+            Assert.Collection<string>(bw.Special,
+            item =>
+            {
+                Assert.Equal("Hold Whole Wheat Bun", item);
+            });
+        }
+
+        [Fact]
+        public void HoldPeppersShouldAddToSpecial()
+        {
+            Brontowurst bw = new Brontowurst();
+            bw.HoldPeppers();
+            Assert.Collection<string>(bw.Special,
+            item =>
+            {
+                Assert.Equal("Hold Peppers", item);
+            });
+        }
+
+        [Fact]
+        public void HoldOnionShouldAddToSpecial()
+        {
+            Brontowurst bw = new Brontowurst();
+            bw.HoldOnion();
+            Assert.Collection<string>(bw.Special,
+            item =>
+            {
+                Assert.Equal("Hold Onion", item);
+            });
+        }
+
+        [Fact]
+        public void HoldAllShouldAddToSpecial()
+        {
+            Brontowurst bw = new Brontowurst();
+            bw.HoldBun();
+            bw.HoldPeppers();
+            bw.HoldOnion();
+            Assert.Collection<string>(bw.Special,
+            item =>
+            {
+                Assert.Equal("Hold Whole Wheat Bun", item);
+            },
+            item =>
+            {
+                Assert.Equal("Hold Peppers", item);
+            },
+            item =>
+            {
+                Assert.Equal("Hold Onion", item);
+            });
+            //Have to have in correct order to be able to pass test
+        }
+
+        [Fact]
+        public void HoldingBunShouldSpecialChange()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.PropertyChanged(bw, "Special", () =>
+            {
+                bw.HoldBun();
+            });
+        }
+
+        [Fact]
+        public void HoldingPeppersShouldSpecialChange()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.PropertyChanged(bw, "Special", () =>
+            {
+                bw.HoldPeppers();
+            });
+        }
+
+        [Fact]
+        public void HoldingOnionShouldSpecialChange()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.PropertyChanged(bw, "Special", () =>
+            {
+                bw.HoldOnion();
+            });
+        }
     }
 
 }

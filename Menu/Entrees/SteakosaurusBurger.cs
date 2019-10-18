@@ -122,7 +122,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets the description of the order item
         /// </summary>
-        public string Description
+        public override string Description
         {
             get { return this.ToString(); }
         }
@@ -130,7 +130,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Tells if there is a special request for the order
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {

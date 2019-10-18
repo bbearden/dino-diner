@@ -60,9 +60,21 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets the description of the order item
         /// </summary>
-        public string Description
+        public override string Description
         {
             get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Tells if there is a special request for the order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
         }
     }
 }
