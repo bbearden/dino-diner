@@ -15,7 +15,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// the amount of nuggets in the order
         /// </summary>
-        private int nuggetCount = 6;
+        public int NuggetCount = 6;
 
         /// <summary>
         /// An event handler for PropertyChanged events
@@ -48,7 +48,7 @@ namespace DinoDiner.Menu
             get
             { 
                 List<string> ingredients = new List<string>();
-                for(int i = 0; i<nuggetCount; i++)
+                for(int i = 0; i<NuggetCount; i++)
                 {
                     ingredients.Add("Chicken Nugget");
                 }
@@ -63,7 +63,7 @@ namespace DinoDiner.Menu
         {
             this.Price += .25;
             this.Calories += 59;
-            this.nuggetCount += 1;
+            this.NuggetCount += 1;
             NotifyOfPropertyChanged("Ingredients");
             NotifyOfPropertyChanged("Special");
         }
@@ -93,7 +93,7 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                if (nuggetCount > 6) special.Add(nuggetCount - 6 + " Extra Nuggets"); //supposed to be # extra nuggets where # is number of nuggets, but that's incorrect grammar
+                if (NuggetCount > 6) special.Add(NuggetCount - 6 + " Extra Nuggets"); //supposed to be # extra nuggets where # is number of nuggets, but that's incorrect grammar
                 return special.ToArray();
             }
         }

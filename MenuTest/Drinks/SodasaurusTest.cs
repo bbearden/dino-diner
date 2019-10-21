@@ -207,6 +207,7 @@ namespace MenuTest.Drinks
         {
             Sodasaurus soda = new Sodasaurus();
             soda.Size = size;
+            soda.Flavor = flavor;
             Assert.Equal($"{size} {flavor} Sodasaurus", soda.Description);
         }
 
@@ -215,6 +216,25 @@ namespace MenuTest.Drinks
         {
             Sodasaurus soda = new Sodasaurus();
             Assert.Empty(soda.Special);
+        }
+
+        [Theory]
+        [InlineData(SodasaurusFlavor.Cherry)]
+        [InlineData(SodasaurusFlavor.Chocolate)]
+        [InlineData(SodasaurusFlavor.Cola)]
+        [InlineData(SodasaurusFlavor.Cream)]
+        [InlineData(SodasaurusFlavor.Grape)]
+        [InlineData(SodasaurusFlavor.Lime)]
+        [InlineData(SodasaurusFlavor.Orange)]
+        [InlineData(SodasaurusFlavor.RootBeer)]
+        [InlineData(SodasaurusFlavor.Vanilla)]
+        public void ChangingFlavorShouldDescriptionChange(SodasaurusFlavor flavor)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Description", () =>
+            {
+                soda.Flavor = flavor;
+            });
         }
 
         [Theory]
@@ -243,6 +263,19 @@ namespace MenuTest.Drinks
             });
         }
 
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldDescriptionChange(Size size)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Description", () =>
+            {
+                soda.Size = size;
+            });
+        }
+
         [Fact]
         public void HoldIceShouldAddtoSpecial()
         {
@@ -251,34 +284,6 @@ namespace MenuTest.Drinks
             Assert.Collection<string>(soda.Special, item =>
             {
                 Assert.Equal("Hold Ice", item);
-            });
-        }
-
-        [Theory]
-        [InlineData(Size.Small)]
-        [InlineData(Size.Medium)]
-        [InlineData(Size.Large)]
-        public void ChangingSideShouldPriceChange(Size size)
-        {
-            Sodasaurus soda = new Sodasaurus();
-            soda.Size = size;
-            Assert.PropertyChanged(soda, "Price", () =>
-            {
-                soda.Size = size;
-            });
-        }
-
-        [Theory]
-        [InlineData(Size.Small)]
-        [InlineData(Size.Medium)]
-        [InlineData(Size.Large)]
-        public void ChangingSideShouldCalorieChange(Size size)
-        {
-            Sodasaurus soda = new Sodasaurus();
-            soda.Size = size;
-            Assert.PropertyChanged(soda, "Calories", () =>
-            {
-                soda.Size = size;
             });
         }
     }

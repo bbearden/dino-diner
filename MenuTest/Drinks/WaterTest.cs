@@ -135,5 +135,94 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Water", w.Ingredients);
             Assert.Contains<string>("Lemon", w.Ingredients);
         }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void DescriptionShouldBeCorrectForEachSize(Size size)
+        {
+            Water w = new Water();
+            w.Size = size;
+            Assert.Equal($"{size} Water", w.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            Water w = new Water();
+            Assert.Empty(w.Special);
+        }
+
+        [Fact]
+        public void HoldIceShouldAddtoSpecial()
+        {
+            Water w = new Water();
+            w.HoldIce();
+            Assert.Collection<string>(w.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            });
+        }
+
+        [Fact]
+        public void AddLemonShouldAddtoSpecial()
+        {
+            Water w = new Water();
+            w.AddLemon();
+            Assert.Collection<string>(w.Special, item =>
+            {
+                Assert.Equal("Add Lemon", item);
+            });
+        }
+
+        [Fact]
+        public void HoldAllShouldAddtoSpecial()
+        {
+            Water w = new Water();
+            w.AddLemon();
+            w.HoldIce();
+            Assert.Collection<string>(w.Special, item =>
+            {
+                Assert.Equal("Add Lemon", item);
+            },
+            item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldDescriptionChange(Size size)
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Description", () =>
+            {
+                w.Size = size;
+            });
+        }
+
+        [Fact]
+        public void AddLemonShouldSpecialChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Special", () =>
+            {
+                w.AddLemon();
+            });
+        }
+
+        [Fact]
+        public void HoldIceShouldSpecialChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Special", () =>
+            {
+                w.HoldIce();
+            });
+        }
     }
 }

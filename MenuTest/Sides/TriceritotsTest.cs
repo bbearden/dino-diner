@@ -127,5 +127,18 @@ namespace MenuTest.Sides
                 tt.Size = size;
             });
         }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldDescriptionChange(Size size)
+        {
+            Triceritots tt = new Triceritots();
+            Assert.PropertyChanged(tt, "Description", () =>
+            {
+                tt.Size = size;
+            });
+        }
     }
 }

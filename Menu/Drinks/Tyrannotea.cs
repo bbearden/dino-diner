@@ -72,6 +72,8 @@ namespace DinoDiner.Menu
                     else Calories = 32;
                 }
                 NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
             }
         }
 
@@ -112,7 +114,7 @@ namespace DinoDiner.Menu
         public void AddSweetener()
         {
             Sweet = true;
-            NotifyOfPropertyChanged("Calories");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

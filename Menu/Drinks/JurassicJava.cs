@@ -111,7 +111,6 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             Ice = true;
-            NotifyOfPropertyChanged("Ingredients");
             NotifyOfPropertyChanged("Special");
         }
 

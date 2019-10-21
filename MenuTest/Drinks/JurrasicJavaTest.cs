@@ -127,5 +127,128 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Water", jj.Ingredients);
             Assert.Contains<string>("Coffee", jj.Ingredients);
         }
+
+        [Theory]
+        [InlineData(Size.Small, false)]
+        [InlineData(Size.Medium, false)]
+        [InlineData(Size.Large, false)]
+        [InlineData(Size.Small, true)]
+        [InlineData(Size.Medium, true)]
+        [InlineData(Size.Large, true)]
+        public void DescriptionShouldBeCorrectForEachSize(Size size, bool decaf)
+        {
+            JurassicJava jj = new JurassicJava();
+            jj.Size = size;
+            if (!decaf)
+            {
+                Assert.Equal($"{size} Jurassic Java", jj.Description);
+            }
+            else
+            {
+                jj.Decafinate();
+                Assert.Equal($"{size} Decaf Jurassic Java", jj.Description);
+            }
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            JurassicJava jj = new JurassicJava();
+            Assert.Empty(jj.Special);
+        }
+
+        [Fact]
+        public void HoldIceShouldAddtoSpecial()
+        {
+            JurassicJava jj = new JurassicJava();
+            jj.HoldIce();
+            Assert.Collection<string>(jj.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            });
+        }
+
+        [Fact]
+        public void LeaveRoomForCreamShouldAddtoSpecial()
+        {
+            JurassicJava jj = new JurassicJava();
+            jj.LeaveRoomForCream();
+            Assert.Collection<string>(jj.Special, item =>
+            {
+                Assert.Equal("Add Room for Cream", item);
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldPriceChange(Size size)
+        {
+            JurassicJava jj = new JurassicJava();
+            Assert.PropertyChanged(jj, "Price", () =>
+            {
+                jj.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldCalorieChange(Size size)
+        {
+            JurassicJava jj = new JurassicJava();
+            Assert.PropertyChanged(jj, "Calories", () =>
+            {
+                jj.Size = size;
+            });
+        }
+
+        [Fact]
+        public void LeaveRoomForCreamShouldSpecialChange()
+        {
+            JurassicJava jj = new JurassicJava();
+            Assert.PropertyChanged(jj, "Special", () =>
+            {
+                jj.LeaveRoomForCream();
+            });
+        }
+
+        [Fact]
+        public void HoldIceShouldSpecialChange()
+        {
+            JurassicJava jj = new JurassicJava();
+            Assert.PropertyChanged(jj, "Special", () =>
+            {
+                jj.HoldIce();
+            });
+        }
+
+        [Fact]
+        public void DecafinateShouldDescriptionChange()
+        {
+            JurassicJava jj = new JurassicJava();
+            Assert.PropertyChanged(jj, "Description", () =>
+            {
+                jj.Decafinate();
+            });
+        }
+
+        [Fact]
+        public void HoldAllShouldAddToSpecial()
+        {
+            JurassicJava jj = new JurassicJava();
+            jj.HoldIce();
+            jj.LeaveRoomForCream();
+            Assert.Collection<string>(jj.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            },
+            item =>
+            {
+                Assert.Equal("Add Room for Cream", item);
+            });
+        }
     }
 }
