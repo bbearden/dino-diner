@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Entree.cs
+ * Author: Branden Bearden
+ */ 
+using System;
 using System.Collections.Generic;
 using System.Text;
 

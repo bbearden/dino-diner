@@ -5,13 +5,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Menu order for JurrasicJava (coffee)
     /// </summary>
-    public class JurassicJava : Drink
+    public class JurassicJava : Drink, INotifyPropertyChanged
     {
 
         /// <summary>
@@ -28,6 +29,20 @@ namespace DinoDiner.Menu
         /// tells if the coffee is decaf, initially false
         /// </summary>
         public bool Decaf { get; set; } = false;
+
+        /// <summary>
+        /// An event handler for PropertyChanged events
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// notifys if there was a property value changed
+        /// </summary>
+        /// <param name="propertyName">name of property changed</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Sets the price of the coffee based on the size
@@ -54,6 +69,9 @@ namespace DinoDiner.Menu
                     Price = 1.49;
                     Calories = 8;
                 }
+                NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
             }
         }
 
@@ -84,6 +102,7 @@ namespace DinoDiner.Menu
         public void LeaveRoomForCream()
         {
             RoomForCream = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -92,6 +111,14 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             Ice = true;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
+        }
+
+        public void Decafinate()
+        {
+            Decaf = true;
+            NotifyOfPropertyChanged("Description");
         }
 
         /// <summary>
@@ -107,6 +134,28 @@ namespace DinoDiner.Menu
             else
             {
                 return Size + " Jurassic Java";
+            }
+        }
+
+        /// <summary>
+        /// Gets the description of the order item
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Tells if there is a special request for the order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Ice) special.Add("Add Ice");
+                if (RoomForCream) special.Add("Add Room for Cream");
+                return special.ToArray();
             }
         }
     }

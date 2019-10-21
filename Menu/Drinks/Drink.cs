@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Drink.cs
+ * Author: Branden Bearden
+ */ 
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;

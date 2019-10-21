@@ -5,13 +5,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Menu order for Tyrannotea
     /// </summary>
-    public class Tyrannotea : Drink
+    public class Tyrannotea : Drink, INotifyPropertyChanged
     {
         /// <summary>
         /// Declaring size enum
@@ -27,6 +28,20 @@ namespace DinoDiner.Menu
         /// tells if there is lemon in the drink, initially false
         /// </summary>
         public bool Lemon { get; set; } = false;
+
+        /// <summary>
+        /// An event handler for PropertyChanged events
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// notifys if there was a property value changed
+        /// </summary>
+        /// <param name="propertyName">name of property changed</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Sets the price and calories of the drink based on the size and if sweetened
@@ -53,9 +68,10 @@ namespace DinoDiner.Menu
                 else if (size == Size.Large)
                 {
                     Price = 1.99;
-                    if (Sweet) Calories = 64;
+                    if (Sweet) Calories = 64; 
                     else Calories = 32;
                 }
+                NotifyOfPropertyChanged("Description");
             }
         }
 
@@ -87,6 +103,7 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -95,6 +112,7 @@ namespace DinoDiner.Menu
         public void AddSweetener()
         {
             Sweet = true;
+            NotifyOfPropertyChanged("Calories");
         }
 
         /// <summary>
@@ -110,6 +128,28 @@ namespace DinoDiner.Menu
             else
             {
                 return Size + " Tyrannotea";
+            }
+        }
+
+        /// <summary>
+        /// Gets the description of the order item
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Tells if there is a special request for the order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                if (Lemon) special.Add("Add Lemon");
+                return special.ToArray();
             }
         }
     }

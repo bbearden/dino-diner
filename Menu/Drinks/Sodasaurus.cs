@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -11,12 +12,26 @@ namespace DinoDiner.Menu
    /// <summary>
    /// Customizeable drink order
    /// </summary>
-    public class Sodasaurus : Drink
+    public class Sodasaurus : Drink, INotifyPropertyChanged
     {
         /// <summary>
         /// Declaring size enum
         /// </summary>
         private Size size;
+
+        /// <summary>
+        /// An event handler for PropertyChanged events
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// notifys if there was a property value changed
+        /// </summary>
+        /// <param name="propertyName">name of property changed</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Sets the price of the drink based on the size
@@ -42,12 +57,15 @@ namespace DinoDiner.Menu
                     Price = 2.50;
                     Calories = 208;
                 }
+                NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
             }
         }
 
-       /// <summary>
-       /// Declaring the flavor enum
-       /// </summary>
+        /// <summary>
+        /// Declaring the flavor enum
+        /// </summary>
         private SodasaurusFlavor flavor;
         
         /// <summary>
@@ -56,7 +74,11 @@ namespace DinoDiner.Menu
         public SodasaurusFlavor Flavor
         {
             get { return flavor; }
-            set { flavor = value; }
+            set
+            {
+                flavor = value;
+                NotifyOfPropertyChanged("Description");
+            }
         }
 
         /// <summary>
@@ -86,7 +108,27 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return Size + " " + Flavor + " Sodasaurus";
+        }
 
+        /// <summary>
+        /// Gets the description of the order item
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Tells if there is a special request for the order
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
         }
     }
 }
