@@ -5,13 +5,28 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     
 
-    public abstract class Drink : IMenuItem, IOrderItem
+    public abstract class Drink : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// An event handler for PropertyChanged events
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// notifys if there was a property value changed
+        /// </summary>
+        /// <param name="propertyName">name of property changed</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         protected List<string> ingredients = new List<string>(); //MAYBE
 
         /// <summary>
@@ -55,14 +70,6 @@ namespace DinoDiner.Menu
         /// Tells if there is a special request for the order
         /// </summary>
         public abstract string[] Special { get; }
-
-        /// <summary>
-        /// Holds the ice
-        /// </summary>
-        public void HoldIce()
-        {
-            Ice = false;
-        }
 
     }
 }

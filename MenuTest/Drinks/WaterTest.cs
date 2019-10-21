@@ -180,15 +180,15 @@ namespace MenuTest.Drinks
         public void HoldAllShouldAddtoSpecial()
         {
             Water w = new Water();
-            w.AddLemon();
             w.HoldIce();
+            w.AddLemon();
             Assert.Collection<string>(w.Special, item =>
             {
-                Assert.Equal("Add Lemon", item);
+                Assert.Equal("Hold Ice", item);
             },
             item =>
             {
-                Assert.Equal("Hold Ice", item);
+                Assert.Equal("Add Lemon", item);
             });
         }
 

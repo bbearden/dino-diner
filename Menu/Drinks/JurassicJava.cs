@@ -5,14 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Menu order for JurrasicJava (coffee)
     /// </summary>
-    public class JurassicJava : Drink, INotifyPropertyChanged
+    public class JurassicJava : Drink
     {
 
         /// <summary>
@@ -29,20 +28,6 @@ namespace DinoDiner.Menu
         /// tells if the coffee is decaf, initially false
         /// </summary>
         public bool Decaf { get; set; } = false;
-
-        /// <summary>
-        /// An event handler for PropertyChanged events
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// notifys if there was a property value changed
-        /// </summary>
-        /// <param name="propertyName">name of property changed</param>
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         /// <summary>
         /// Sets the price of the coffee based on the size

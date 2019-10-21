@@ -3,29 +3,14 @@
  */
 
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {   
     /// <summary>
     /// Menu order for StekosaurusBurger
     /// </summary>
-    public class SteakosaurusBurger : Entree, INotifyPropertyChanged
+    public class SteakosaurusBurger : Entree
     {
-
-        /// <summary>
-        /// An event handler for PropertyChanged events
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// notifys if there was a property value changed
-        /// </summary>
-        /// <param name="propertyName">name of property changed</param>
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         /// <summary>
         /// Indicates if the bus is on the burger

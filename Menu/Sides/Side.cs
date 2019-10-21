@@ -5,15 +5,30 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
- 
+using System.ComponentModel; 
+
 namespace DinoDiner.Menu
 {
 
     /// <summary>
     /// Abstract side class including Price, Calories, Ingredients, and Size
     /// </summary>
-    public abstract class Side : IMenuItem, IOrderItem
+    public abstract class Side : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// An event handler for PropertyChanged events
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// notifys if there was a property value changed
+        /// </summary>
+        /// <param name="propertyName">name of property changed</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         protected List<string> ingredients = new List<string>();
         /// <summary>
         /// Gets and sets the price

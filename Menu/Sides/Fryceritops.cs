@@ -4,29 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Side order for Fryceritops inheriting Side base class
     /// </summary>
-    public class Fryceritops : Side, INotifyPropertyChanged
+    public class Fryceritops : Side
     {
-        /// <summary>
-        /// An event handler for PropertyChanged events
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// notifys if there was a property value changed
-        /// </summary>
-        /// <param name="propertyName">name of property changed</param>
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         /// <summary>
         /// Declaring Size enum from Size base class
         /// </summary>

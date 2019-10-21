@@ -5,14 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Menu order for water
     /// </summary>
-    public class Water : Drink, INotifyPropertyChanged
+    public class Water : Drink
     {
         /// <summary>
         /// Declaring size enum
@@ -23,20 +22,6 @@ namespace DinoDiner.Menu
         /// tells if there is lemon in the drink, initially false
         /// </summary>
         public bool Lemon { get; set; } = false;
-
-        /// <summary>
-        /// An event handler for PropertyChanged events
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// notifys if there was a property value changed
-        /// </summary>
-        /// <param name="propertyName">name of property changed</param>
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         /// <summary>
         /// size of the water
@@ -72,6 +57,12 @@ namespace DinoDiner.Menu
             Size = Size.Small;
             Price = .10;
             Calories = 0;
+        }
+
+        public void HoldIce()
+        {
+            Ice = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

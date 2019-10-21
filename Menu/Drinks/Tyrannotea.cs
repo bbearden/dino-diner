@@ -12,7 +12,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Menu order for Tyrannotea
     /// </summary>
-    public class Tyrannotea : Drink, INotifyPropertyChanged
+    public class Tyrannotea : Drink
     {
         /// <summary>
         /// Declaring size enum
@@ -28,20 +28,6 @@ namespace DinoDiner.Menu
         /// tells if there is lemon in the drink, initially false
         /// </summary>
         public bool Lemon { get; set; } = false;
-
-        /// <summary>
-        /// An event handler for PropertyChanged events
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// notifys if there was a property value changed
-        /// </summary>
-        /// <param name="propertyName">name of property changed</param>
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         /// <summary>
         /// Sets the price and calories of the drink based on the size and if sweetened
@@ -97,6 +83,15 @@ namespace DinoDiner.Menu
         public Tyrannotea()
         {
             this.Size = Size.Small;
+        }
+
+        /// <summary>
+        /// Holds the ice
+        /// </summary>
+        public void HoldIce()
+        {
+            Ice = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

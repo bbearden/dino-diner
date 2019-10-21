@@ -28,7 +28,7 @@ namespace MenuTest.Entrees
             Assert.Contains<string>("Flour Tortilla", ingredients);
             Assert.Contains<string>("Chicken Breast", ingredients);
             Assert.Contains<string>("Romaine Lettuce", ingredients);
-            Assert.Contains<string>("Ceasar Dressing", ingredients);
+            Assert.Contains<string>("Caesar Dressing", ingredients);
             Assert.Contains<string>("Parmesan Cheese", ingredients);
             Assert.Equal<int>(5, ingredients.Count);
         }

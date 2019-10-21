@@ -3,29 +3,14 @@
  */
 
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {   
     /// <summary>
     /// Menu order for VelociWrap 
     /// </summary>
-    public class VelociWrap : Entree, INotifyPropertyChanged
+    public class VelociWrap : Entree
     {
-
-        /// <summary>
-        /// An event handler for PropertyChanged events
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// notifys if there was a property value changed
-        /// </summary>
-        /// <param name="propertyName">name of property changed</param>
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         /// <summary>
         /// Indicates if lettuce is on the wrap 
@@ -60,7 +45,7 @@ namespace DinoDiner.Menu
             get
             {
                 if(Lettuce) ingredients.Add("Romaine Lettuce");
-                if(Dressing) ingredients.Add("Ceasar Dressing");
+                if(Dressing) ingredients.Add("Caesar Dressing");
                 if(Cheese) ingredients.Add("Parmesan Cheese");
                 return ingredients;
             }
@@ -123,7 +108,7 @@ namespace DinoDiner.Menu
             {
                 List<string> special = new List<string>();
                 if (!Lettuce) special.Add("Hold Romaine Lettuce");
-                if (!Dressing) special.Add("Hold Ceasar Dressing");
+                if (!Dressing) special.Add("Hold Caesar Dressing");
                 if (!Cheese) special.Add("Hold Parmesan Cheese");
                 return special.ToArray();
             }

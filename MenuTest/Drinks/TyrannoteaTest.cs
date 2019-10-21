@@ -230,7 +230,7 @@ namespace MenuTest.Drinks
             else
             {
                 tea.AddSweetener();
-                Assert.Equal($"{size} sweet Tyrannotea", tea.Description);
+                Assert.Equal($"{size} Sweet Tyrannotea", tea.Description);
             }
         }
 
@@ -267,15 +267,15 @@ namespace MenuTest.Drinks
         public void HoldAllShouldAddtoSpecial()
         {
             Tyrannotea tea = new Tyrannotea();
-            tea.AddLemon();
             tea.HoldIce();
+            tea.AddLemon();
             Assert.Collection<string>(tea.Special, item =>
             {
-                Assert.Equal("Add Lemon", item);
+                Assert.Equal("Hold Ice", item);
             },
             item =>
             {
-                Assert.Equal("Hold Ice", item);
+                Assert.Equal("Add Lemon", item);
             });
         }
 

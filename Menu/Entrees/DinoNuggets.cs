@@ -3,33 +3,18 @@
  */ 
 
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Menu order for DinoNuggets
     /// </summary>
-    public class DinoNuggets : Entree, INotifyPropertyChanged
+    public class DinoNuggets : Entree
     {
         /// <summary>
         /// the amount of nuggets in the order
         /// </summary>
         public int NuggetCount = 6;
-
-        /// <summary>
-        /// An event handler for PropertyChanged events
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// notifys if there was a property value changed
-        /// </summary>
-        /// <param name="propertyName">name of property changed</param>
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         /// <summary>
         /// The Price and Calories of the nuggets

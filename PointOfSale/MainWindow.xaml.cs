@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -27,6 +28,15 @@ namespace PointOfSale
         public MainWindow()
         {
             InitializeComponent();
+            Order order = DataContext as Order; //casting DataContext to Order
+            order.Items.Add(new PrehistoricPBJ());
+            order.Items.Add(new Fryceritops());
+            order.Items.Add(new Sodasaurus());
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldMustard();
+            sb.HoldBun();
+            order.Items.Add(sb);
+            //DataContext = order; we declared it in xaml
         }
     }
 }

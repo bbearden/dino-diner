@@ -4,14 +4,13 @@
  */ 
 
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Menu order for PrehistoricPBJ
     /// </summary>
-    public class PrehistoricPBJ : Entree, INotifyPropertyChanged
+    public class PrehistoricPBJ : Entree
     {
         /// <summary>
         /// Indicates if peanut butter is on the PBJ
@@ -21,20 +20,6 @@ namespace DinoDiner.Menu
         /// Indicates if Jelly is on the PBJ
         /// </summary>
         private bool jelly = true;
-
-        /// <summary>
-        /// An event handler for PropertyChanged events
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// notifys if there was a property value changed
-        /// </summary>
-        /// <param name="propertyName">name of property changed</param>
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         
         /// <summary>
         /// constructor setting initial price, calories, and List of ingredients from Entree base class

@@ -3,29 +3,14 @@
  */ 
 
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Menu order for TRExBurgerKing
     /// </summary>
-    public class TRexKingBurger : Entree, INotifyPropertyChanged
+    public class TRexKingBurger : Entree
     {
-
-        /// <summary>
-        /// An event handler for PropertyChanged events
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// notifys if there was a property value changed
-        /// </summary>
-        /// <param name="propertyName">name of property changed</param>
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         /// <summary>
         /// Indicates if the bun is on the burger
@@ -201,7 +186,7 @@ namespace DinoDiner.Menu
                 if (!Tomato) special.Add("Hold Tomato");
                 if (!Onion) special.Add("Hold Onion");
                 if (!Pickle) special.Add("Hold Pickle");
-                if (!Ketchup) special.Add("Hold Ketcup");
+                if (!Ketchup) special.Add("Hold Ketchup");
                 if (!Mustard) special.Add("Hold Mustard");
                 if (!Mayo) special.Add("Hold Mayo");
                 return special.ToArray();

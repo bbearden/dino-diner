@@ -12,26 +12,12 @@ namespace DinoDiner.Menu
    /// <summary>
    /// Customizeable drink order
    /// </summary>
-    public class Sodasaurus : Drink, INotifyPropertyChanged
+    public class Sodasaurus : Drink
     {
         /// <summary>
         /// Declaring size enum
         /// </summary>
         private Size size;
-
-        /// <summary>
-        /// An event handler for PropertyChanged events
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// notifys if there was a property value changed
-        /// </summary>
-        /// <param name="propertyName">name of property changed</param>
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         /// <summary>
         /// Sets the price of the drink based on the size
@@ -99,6 +85,15 @@ namespace DinoDiner.Menu
                 List<string> ingredients = new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
                 return ingredients;
             }
+        }
+
+        /// <summary>
+        /// Holds the ice
+        /// </summary>
+        public void HoldIce()
+        {
+            Ice = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

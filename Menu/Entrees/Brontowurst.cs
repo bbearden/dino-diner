@@ -3,14 +3,13 @@
  */ 
 
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Menu order for Brontowurst
     /// </summary>
-    public class Brontowurst : Entree, INotifyPropertyChanged
+    public class Brontowurst : Entree
     {
         /// <summary>
         /// Indicates if the bun is apart of the Brontowurst
@@ -24,20 +23,6 @@ namespace DinoDiner.Menu
         /// Indicates if an onion is on the Brontowurst
         /// </summary>
         private bool Onion = true;
-
-        /// <summary>
-        /// An event handler for PropertyChanged events
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// notifys if there was a property value changed
-        /// </summary>
-        /// <param name="propertyName">name of property changed</param>
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         /// <summary>
         /// List accessor with set and removeable ingredients

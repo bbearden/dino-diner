@@ -158,13 +158,13 @@ namespace MenuTest.Drinks
         }
 
         [Fact]
-        public void HoldIceShouldAddtoSpecial()
+        public void AddIceShouldAddtoSpecial()
         {
             JurassicJava jj = new JurassicJava();
-            jj.HoldIce();
+            jj.AddIce();
             Assert.Collection<string>(jj.Special, item =>
             {
-                Assert.Equal("Hold Ice", item);
+                Assert.Equal("Add Ice", item);
             });
         }
 
@@ -216,12 +216,12 @@ namespace MenuTest.Drinks
         }
 
         [Fact]
-        public void HoldIceShouldSpecialChange()
+        public void AddIceShouldSpecialChange()
         {
             JurassicJava jj = new JurassicJava();
             Assert.PropertyChanged(jj, "Special", () =>
             {
-                jj.HoldIce();
+                jj.AddIce();
             });
         }
 
@@ -239,11 +239,11 @@ namespace MenuTest.Drinks
         public void HoldAllShouldAddToSpecial()
         {
             JurassicJava jj = new JurassicJava();
-            jj.HoldIce();
+            jj.AddIce();
             jj.LeaveRoomForCream();
             Assert.Collection<string>(jj.Special, item =>
             {
-                Assert.Equal("Hold Ice", item);
+                Assert.Equal("Add Ice", item);
             },
             item =>
             {
