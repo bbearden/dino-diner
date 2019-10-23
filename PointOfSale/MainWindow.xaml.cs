@@ -28,7 +28,10 @@ namespace PointOfSale
         public MainWindow()
         {
             InitializeComponent();
+            //Order order = new Order();
+            
             Order order = DataContext as Order; //casting DataContext to Order
+            //DataContext = order;
             order.Items.Add(new PrehistoricPBJ());
             order.Items.Add(new Fryceritops());
             order.Items.Add(new Sodasaurus());
@@ -37,6 +40,26 @@ namespace PointOfSale
             sb.HoldBun();
             order.Items.Add(sb);
             //DataContext = order; we declared it in xaml
+
+            
+        }
+
+        private void PassDataContentToPage()
+        {
+            if(OrderUI.Content is Page page)
+            {
+                page.DataContext = OrderUI.DataContext;
+            }
+        }
+
+        private void OnLoadCompleted(object sender, NavigationEventArgs args)
+        {
+            PassDataContentToPage();
+        }
+
+        private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
+        {
+            PassDataContentToPage();
         }
     }
 }

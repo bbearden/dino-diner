@@ -28,37 +28,37 @@
             <ColumnDefinition>
             </ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Bottom">
+        <Button Click="OnSelectSodasaurus" Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Bottom">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-14.png"></ImageBrush>
             </Button.Background>
             <TextBlock FontWeight="ExtraBold">Sodasaurus</TextBlock>
         </Button>
-        <Button Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Bottom">
+        <Button Click="OnSelectTyrannotea" Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Bottom">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-12.png"></ImageBrush>
             </Button.Background>
             <TextBlock FontWeight="ExtraBold">Tyrannotea</TextBlock>
         </Button>
-        <Button Grid.Row="2" Grid.Column="0" VerticalContentAlignment="Bottom">
+        <Button Click="OnSelectJurassicJava" Grid.Row="2" Grid.Column="0" VerticalContentAlignment="Bottom">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-13.png"></ImageBrush>
             </Button.Background>
             <TextBlock FontWeight="ExtraBold">Jurassic Java</TextBlock>
         </Button>
-        <Button Grid.Row="3" Grid.Column="0" VerticalContentAlignment="Bottom">
+        <Button Click="OnSelectWater" Grid.Row="3" Grid.Column="0" VerticalContentAlignment="Bottom">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-15.png"></ImageBrush>
             </Button.Background>
             <TextBlock FontWeight="ExtraBold">Water</TextBlock>
         </Button>
-        <Button Grid.Row="0" Grid.Column="2">
+        <Button Name="MakeSmall" Tag="Small" Click="OnChangeSide" Grid.Row="0" Grid.Column="2">
             <TextBlock FontWeight="ExtraBold">Small</TextBlock>
         </Button>
-        <Button Grid.Row="1" Grid.Column="2">
+        <Button Name="MakeMedium" Tag="Medium" Click="OnChangeSide" Grid.Row="1" Grid.Column="2">
             <TextBlock FontWeight="ExtraBold">Medium</TextBlock>
         </Button>
-        <Button Grid.Row="2" Grid.Column="2">
+        <Button Name="MakeLarge" Tag="Large" Click="OnChangeSide" Grid.Row="2" Grid.Column="2">
             <TextBlock FontWeight="ExtraBold">Large</TextBlock>
         </Button>
         <Button Click ="SelectFlavor" Grid.Row="0" Grid.Column="4">
