@@ -19,9 +19,9 @@ namespace MenuTest
             MockDrink md = new MockDrink(2.50);
             Order o = new Order();
 
-            o.Items.Add(me);
-            o.Items.Add(ms);
-            o.Items.Add(md);
+            o.Add(me);
+            o.Add(ms);
+            o.Add(md);
 
             Assert.Equal<double>(11.00, o.SubtotalCost);
         }
@@ -34,9 +34,9 @@ namespace MenuTest
             MockDrink md = new MockDrink(2.50);
             Order o = new Order();
 
-            o.Items.Add(me);
-            o.Items.Add(ms);
-            o.Items.Add(md);
+            o.Add(me);
+            o.Add(ms);
+            o.Add(md);
 
             Assert.Equal<double>(.60, o.SalesTaxCost);
         }
@@ -49,9 +49,9 @@ namespace MenuTest
             MockDrink md = new MockDrink(2.50);
             Order o = new Order();
 
-            o.Items.Add(me);
-            o.Items.Add(ms);
-            o.Items.Add(md);
+            o.Add(me);
+            o.Add(ms);
+            o.Add(md);
 
             Assert.Equal<double>(11.60, o.TotalCost);
         }
@@ -64,9 +64,9 @@ namespace MenuTest
             MockDrink md = new MockDrink(-2.50);
             Order o = new Order();
 
-            o.Items.Add(me);
-            o.Items.Add(ms);
-            o.Items.Add(md);
+            o.Add(me);
+            o.Add(ms);
+            o.Add(md);
 
             Assert.Equal<double>(0, o.SubtotalCost);
         }

@@ -33,8 +33,14 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        public DrinkSelection(Drink drink)
+        {
+            InitializeComponent();
+            this.drink = drink;
+        }
+ 
         /// <summary>
-        /// Opens FlavorSelection page when the falvor button is clicked
+        /// Opens FlavorSelection page when the flavor button is clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -44,7 +50,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// lets you select fryceritops as side
+        /// lets you select Sodasaurus as the drink
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
@@ -53,12 +59,12 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new Sodasaurus();
-                order.Items.Add(drink);
+                order.Add(drink);
             }
         }
 
         /// <summary>
-        /// lets you select fryceritops as side
+        /// lets you select Tyrannotea as the drink
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
@@ -67,12 +73,12 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new Tyrannotea();
-                order.Items.Add(drink);
+                order.Add(drink);
             }
         }
 
         /// <summary>
-        /// lets you select fryceritops as side
+        /// lets you select Jurassic Java as the drink
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
@@ -81,12 +87,12 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new JurassicJava();
-                order.Items.Add(drink);
+                order.Add(drink);
             }
         }
 
         /// <summary>
-        /// lets you select fryceritops as side
+        /// lets you select Water as the drink
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
@@ -95,7 +101,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new Water();
-                order.Items.Add(drink);
+                order.Add(drink);
             }
         }
 
@@ -109,6 +115,7 @@ namespace PointOfSale
             if (sender is FrameworkElement element)
             {
                 drink.Size = (DDsize)Enum.Parse(typeof(DDsize), element.Tag.ToString());
+                NavigationService?.Navigate(new MenuCategorySelection());
             }
         }
     }

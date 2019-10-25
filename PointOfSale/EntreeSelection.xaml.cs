@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -24,9 +25,122 @@ namespace PointOfSale
     /// </summary>
     public partial class EntreeSelection : Page
     {
+        private Entree entree;
+
         public EntreeSelection()
         {
             InitializeComponent();
+        }
+
+        public EntreeSelection(Entree entree)
+        {
+            InitializeComponent();
+            this.entree = entree;
+        }
+
+        /// <summary>
+        /// lets you select Brontowurst as the entree
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnBrontowurstSelect(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                entree = new Brontowurst();
+                order.Add(entree);
+            }
+            NavigationService?.Navigate(new MenuCategorySelection());
+        }
+
+        /// <summary>
+        /// lets you select Dino Nuggets as the entree
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnDinoNuggetsSelect(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                entree = new DinoNuggets();
+                order.Add(entree);
+            }
+            NavigationService?.Navigate(new MenuCategorySelection());
+        }
+
+        /// <summary>
+        /// lets you select Prehistoric PB&J as the entree
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnPrehistoricPBJSelect(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                entree = new PrehistoricPBJ();
+                order.Add(entree);
+            }
+            NavigationService?.Navigate(new MenuCategorySelection());
+        }
+
+        /// <summary>
+        /// lets you select Pterodactyl Wings as the entree
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnPterodactylWingsSelect(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                entree = new PterodactylWings();
+                order.Add(entree);
+            }
+            NavigationService?.Navigate(new MenuCategorySelection());
+        }
+
+        /// <summary>
+        /// lets you select Steakosaurus Burger as the entree
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnSteakosaurusSelect(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                entree = new SteakosaurusBurger();
+                order.Add(entree);
+            }
+            NavigationService?.Navigate(new MenuCategorySelection());
+        }
+
+        /// <summary>
+        /// lets you select T-Rex King Burger as the entree
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnTRexKingSelect(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                entree = new TRexKingBurger();
+                order.Add(entree);
+            }
+            NavigationService?.Navigate(new MenuCategorySelection());
+        }
+
+        /// <summary>
+        /// lets you select Veloci-Wrap as the entree
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnVelociWrapSelect(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                entree = new VelociWrap();
+                order.Add(entree);
+            }
+            NavigationService?.Navigate(new MenuCategorySelection());
         }
     }
 }

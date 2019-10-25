@@ -62,7 +62,7 @@
             <TextBlock FontWeight="ExtraBold">Large</TextBlock>
         </Button>
         <Button Click ="SelectFlavor" Grid.Row="0" Grid.Column="4">
-            <TextBlock FontWeight="ExtraBold">Sweet/Decaf/Flavor</TextBlock>
+            <TextBlock FontSize="11" FontWeight="ExtraBold">Sweet/Decaf/Flavor</TextBlock>
         </Button>
         <Button Grid.Row="1" Grid.Column="4">
             <TextBlock FontWeight="ExtraBold">Add Lemon</TextBlock>

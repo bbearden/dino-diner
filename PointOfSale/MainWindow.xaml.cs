@@ -1,7 +1,6 @@
 ﻿/* MainWindow.xaml.cs
  * Author: Branden Bearden
  */
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,16 +31,16 @@ namespace PointOfSale
             
             Order order = DataContext as Order; //casting DataContext to Order
             //DataContext = order;
-            order.Items.Add(new PrehistoricPBJ());
-            order.Items.Add(new Fryceritops());
-            order.Items.Add(new Sodasaurus());
+            /*order.Add(new PrehistoricPBJ());
+            order.Add(new Fryceritops());
+            order.Add(new Sodasaurus());
             SteakosaurusBurger sb = new SteakosaurusBurger();
             sb.HoldMustard();
             sb.HoldBun();
-            order.Items.Add(sb);
+            order.Add(sb);*/
             //DataContext = order; we declared it in xaml
 
-            
+            OrderControl.NavigationService = OrderUI.NavigationService;
         }
 
         private void PassDataContentToPage()

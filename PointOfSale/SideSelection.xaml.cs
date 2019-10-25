@@ -33,6 +33,12 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        public SideSelection(Side side)
+        {
+            InitializeComponent();
+            this.side = side;
+        }
+
         /// <summary>
         /// lets you select fryceritops as side
         /// </summary>
@@ -43,12 +49,12 @@ namespace PointOfSale
             if(DataContext is Order order)
             {
                 side = new Fryceritops();
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
 
         /// <summary>
-        /// lets you select fryceritops as side
+        /// lets you select Meteor Mac and Cheese as side
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
@@ -57,12 +63,12 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new MeteorMacAndCheese();
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
 
         /// <summary>
-        /// lets you select fryceritops as side
+        /// lets you select Mezzorella Sticks as side
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
@@ -71,12 +77,12 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new MezzorellaSticks();
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
 
         /// <summary>
-        /// lets you select fryceritops as side
+        /// lets you select Triceritops as side
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
@@ -85,7 +91,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new Triceritots();
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
 
@@ -99,6 +105,7 @@ namespace PointOfSale
             if(sender is FrameworkElement element)
             {
                 side.Size = (DDsize)Enum.Parse(typeof(DDsize), element.Tag.ToString());
+                NavigationService?.Navigate(new MenuCategorySelection());
             }
         }
 
