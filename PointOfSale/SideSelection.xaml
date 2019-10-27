@@ -46,13 +46,13 @@
             </Button.Background>
             <TextBlock FontWeight="ExtraBold">Triceritots</TextBlock>
         </Button>
-        <Button Name="MakeSmall" Tag="Small" Click="OnChangeSide" Grid.Row="2" Grid.Column="0" Background="AliceBlue">
+        <Button Name="MakeSmall" Tag="Small" Click="OnChangeSize" Grid.Row="2" Grid.Column="0" Background="AliceBlue">
             <TextBlock FontWeight="ExtraBold">Small</TextBlock>
         </Button>
-        <Button Name="MakeMedium" Tag="Medium" Click="OnChangeSide" Grid.Row="2" Grid.Column="1" Background="AliceBlue">
+        <Button Name="MakeMedium" Tag="Medium" Click="OnChangeSize" Grid.Row="2" Grid.Column="1" Background="AliceBlue">
             <TextBlock FontWeight="ExtraBold">Medium</TextBlock>
         </Button>
-        <Button Name="MakeLarge" Tag="Large" Click="OnChangeSide" Grid.Row="2" Grid.Column="2" Background="AliceBlue">
+        <Button Name="MakeLarge" Tag="Large" Click="OnChangeSize" Grid.Row="2" Grid.Column="2" Background="AliceBlue">
             <TextBlock FontWeight="ExtraBold">Large</TextBlock>
         </Button>
     </Grid>

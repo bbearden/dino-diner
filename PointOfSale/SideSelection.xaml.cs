@@ -100,7 +100,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnChangeSide(object sender, RoutedEventArgs args)
+        private void OnChangeSize(object sender, RoutedEventArgs args)
         {
             if(sender is FrameworkElement element)
             {

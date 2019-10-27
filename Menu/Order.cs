@@ -40,12 +40,12 @@ namespace DinoDiner.Menu
 
                 foreach (IOrderItem item in items)
                 {
-                    total += item.Price;
+                    Math.Round(total += item.Price,2);
                 }
 
                 if (total < 0) total = 0;
 
-                return total;
+                return Math.Round(total,2);
             }
         }
 

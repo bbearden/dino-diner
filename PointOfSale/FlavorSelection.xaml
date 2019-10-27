@@ -21,31 +21,31 @@
             </ColumnDefinition>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Row="0" Grid.Column="0">
+        <Button Click="Flavor" Tag="Cola" Grid.Row="0" Grid.Column="0">
             <TextBlock FontWeight="ExtraBold">Cola</TextBlock>
         </Button>
-        <Button Grid.Row="0" Grid.Column="1">
+        <Button Click="Flavor" Tag="Root Beer" Grid.Row="0" Grid.Column="1">
             <TextBlock FontWeight="ExtraBold">Root Beer</TextBlock>
         </Button>
-        <Button Grid.Row="0" Grid.Column="2">
+        <Button Click="Flavor" Tag="Orange" Grid.Row="0" Grid.Column="2">
             <TextBlock FontWeight="ExtraBold">Orange</TextBlock>
         </Button>
-        <Button Grid.Row="1" Grid.Column="0">
+        <Button Click="Flavor" Tag="Lime" Grid.Row="1" Grid.Column="0">
             <TextBlock FontWeight="ExtraBold">Lime</TextBlock>
         </Button>
-        <Button Grid.Row="1" Grid.Column="1">
+        <Button Click="Flavor" Tag="Cherry" Grid.Row="1" Grid.Column="1">
             <TextBlock FontWeight="ExtraBold">Cherry</TextBlock>
         </Button>
-        <Button Grid.Row="1" Grid.Column="2">
+        <Button Click="Flavor" Tag="Vanilla" Grid.Row="1" Grid.Column="2">
             <TextBlock FontWeight="ExtraBold">Vanilla</TextBlock>
         </Button>
-        <Button Grid.Row="2" Grid.Column="0">
+        <Button Click="Flavor" Tag="Grape" Grid.Row="2" Grid.Column="0">
             <TextBlock FontWeight="ExtraBold">Grape</TextBlock>
         </Button>
-        <Button Grid.Row="2" Grid.Column="1">
+        <Button Click="Flavor" Tag="Cream" Grid.Row="2" Grid.Column="1">
             <TextBlock FontWeight="ExtraBold">Cream</TextBlock>
         </Button>
-        <Button Grid.Row="2" Grid.Column="2">
+        <Button Click="Flavor" Tag="Chocolate" Grid.Row="2" Grid.Column="2">
             <TextBlock FontWeight="ExtraBold">Chocolate</TextBlock>
         </Button>
     </Grid>
