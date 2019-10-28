@@ -53,7 +53,7 @@ namespace MenuTest
             o.Add(ms);
             o.Add(md);
 
-            Assert.Equal<double>(11.60, o.TotalCost);
+            Assert.Equal<double>(11.00, o.TotalCost);
         }
 
         [Fact]

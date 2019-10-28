@@ -1,7 +1,6 @@
 ﻿/* FlavorSelection.xaml.cs
  * Author: Branden Bearden
  */
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,21 +24,33 @@ namespace PointOfSale
     /// </summary>
     public partial class FlavorSelection : Page
     {
-        Sodasaurus soda = new Sodasaurus();
+        /// <summary>
+        /// the drink that is having flavor added to it
+        /// </summary>
+        private Sodasaurus soda;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="soda"></param>
         public FlavorSelection(Sodasaurus soda)
         {
             InitializeComponent();
             this.soda = soda;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void Flavor(object sender, RoutedEventArgs args)
         {
             if (sender is FrameworkElement element)
             {
                 soda.Flavor = (DinoDiner.Menu.SodasaurusFlavor)Enum.Parse(typeof(DinoDiner.Menu.SodasaurusFlavor), element.Tag.ToString());
             }
-            NavigationService?.Navigate(new DrinkSelection(soda));     
+            NavigationService.GoBack();     
         }
     }
 }

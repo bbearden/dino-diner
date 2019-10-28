@@ -1,7 +1,6 @@
 ﻿/* DrinkSelection.xaml.cs
  * Author: Branden Bearden
  */
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,33 +33,48 @@ namespace PointOfSale
         /// <summary>
         /// sodasaurus instance
         /// </summary>
-        Sodasaurus soda = new Sodasaurus();
+        private Sodasaurus soda; //Sodasaurus soda = new Sodasaurus() works too because the default is private
 
         /// <summary>
         /// tyrannotea instance
         /// </summary>
-        Tyrannotea tea = new Tyrannotea();
+        private Tyrannotea tea;
 
         /// <summary>
         /// jurassicjava instance
         /// </summary>
-        JurassicJava java = new JurassicJava();
+        private JurassicJava java;
 
         /// <summary>
         /// water instance
         /// </summary>
-        Water water = new Water();
+        private Water water;
 
         public DrinkSelection()
         {
             InitializeComponent();
+            FlavorButton.Visibility = Visibility.Hidden;
+            SweetButton.Visibility = Visibility.Hidden;
+            DecafButton.Visibility = Visibility.Hidden;
+            LemonButton.Visibility = Visibility.Hidden;
+            AddIceButton.Visibility = Visibility.Hidden;
+            HoldIceButton.Visibility = Visibility.Hidden;
+            LeaveRoomForCreamButton.Visibility = Visibility.Hidden;
         }
 
+        /// <summary>
+        /// constructor for changing the size of a drink
+        /// </summary>
+        /// <param name="drink"></param>
         public DrinkSelection(Drink drink)
         {
-            //when chaning size of the selected drink from the order list
             InitializeComponent();
             this.drink = drink;
+            if (drink is Sodasaurus) SodasaurusVisibility();
+            if (drink is Tyrannotea) TyrannoteaVisibility();
+            if (drink is JurassicJava) JurassicJavaVisibility();
+            if (drink is Water) WaterVisibility();
+            
         }
 
         /// <summary>
@@ -71,17 +85,8 @@ namespace PointOfSale
         private void OnSelectSodasaurus(object sender, RoutedEventArgs args)
         {
             //hides all buttons for when switching from one drink to another
-            FlavorButton.Visibility = Visibility.Hidden;
-            SweetButton.Visibility = Visibility.Hidden;
-            DecafButton.Visibility = Visibility.Hidden;
-            LemonButton.Visibility = Visibility.Hidden;
-            AddIceButton.Visibility = Visibility.Hidden;
-            HoldIceButton.Visibility = Visibility.Hidden;
-            LeaveRoomForCreamButton.Visibility = Visibility.Hidden;
+            SodasaurusVisibility();
 
-            FlavorButton.Visibility = Visibility.Visible;
-            HoldIceButton.Visibility = Visibility.Visible;
-            
             if (DataContext is Order order)
             {
                 drink = new Sodasaurus();
@@ -97,17 +102,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void OnSelectTyrannotea(object sender, RoutedEventArgs args)
         {
-            FlavorButton.Visibility = Visibility.Hidden;
-            SweetButton.Visibility = Visibility.Hidden;
-            DecafButton.Visibility = Visibility.Hidden;
-            LemonButton.Visibility = Visibility.Hidden;
-            AddIceButton.Visibility = Visibility.Hidden;
-            HoldIceButton.Visibility = Visibility.Hidden;
-            LeaveRoomForCreamButton.Visibility = Visibility.Hidden;
-
-            SweetButton.Visibility = Visibility.Visible;
-            HoldIceButton.Visibility = Visibility.Visible;
-            LemonButton.Visibility = Visibility.Visible;
+            TyrannoteaVisibility();
 
             if (DataContext is Order order)
             {
@@ -124,17 +119,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void OnSelectJurassicJava(object sender, RoutedEventArgs args)
         {
-            FlavorButton.Visibility = Visibility.Hidden;
-            SweetButton.Visibility = Visibility.Hidden;
-            DecafButton.Visibility = Visibility.Hidden;
-            LemonButton.Visibility = Visibility.Hidden;
-            AddIceButton.Visibility = Visibility.Hidden;
-            HoldIceButton.Visibility = Visibility.Hidden;
-            LeaveRoomForCreamButton.Visibility = Visibility.Hidden;
-
-            DecafButton.Visibility = Visibility.Visible;
-            AddIceButton.Visibility = Visibility.Visible;
-            LeaveRoomForCreamButton.Visibility = Visibility.Visible;
+            JurassicJavaVisibility();
 
             if (DataContext is Order order)
             {
@@ -151,16 +136,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void OnSelectWater(object sender, RoutedEventArgs args)
         {
-            FlavorButton.Visibility = Visibility.Hidden;
-            SweetButton.Visibility = Visibility.Hidden;
-            DecafButton.Visibility = Visibility.Hidden;
-            LemonButton.Visibility = Visibility.Hidden;
-            AddIceButton.Visibility = Visibility.Hidden;
-            HoldIceButton.Visibility = Visibility.Hidden;
-            LeaveRoomForCreamButton.Visibility = Visibility.Hidden;
-
-            LemonButton.Visibility = Visibility.Visible;
-            HoldIceButton.Visibility = Visibility.Visible;
+            WaterVisibility();
 
             if (DataContext is Order order)
             {
@@ -182,6 +158,11 @@ namespace PointOfSale
             NavigationService.Navigate(new FlavorSelection(soda));
         }
 
+        /// <summary>
+        /// adds sweet to special property of the tyrannotea
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnMakeSweet(object sender, RoutedEventArgs args)
         {
             if(DataContext is Order order)
@@ -191,6 +172,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// adds decaf to special property of the jurassic java
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnMakeDecaf(object sender, RoutedEventArgs args)
         {
             if(DataContext is Order order)
@@ -200,6 +186,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// adds lemon to the description of the specified drink
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnAddLemon(object sender, RoutedEventArgs args)
         {
             if(DataContext is Order order)
@@ -218,6 +209,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// adds room for cream to the description of the jurassic java
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnRoomForCream(object sender, RoutedEventArgs args)
         {
             if(DataContext is Order order)
@@ -227,6 +223,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// adds hold ice to the description of the specified drink
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnHoldIce(object sender, RoutedEventArgs args)
         {
             if(DataContext is Order order)
@@ -251,6 +252,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// adds add ice to the the description of the jurassic java
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnAddIce(object sender, RoutedEventArgs args)
         {
             if(DataContext is Order order)
@@ -260,6 +266,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// returns to the menu category selection screen when button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
             NavigationService?.Navigate(new MenuCategorySelection());
@@ -276,6 +287,64 @@ namespace PointOfSale
             {
                 drink.Size = (DDsize)Enum.Parse(typeof(DDsize), element.Tag.ToString());
             }
+        }
+
+        void SodasaurusVisibility()
+        {
+            FlavorButton.Visibility = Visibility.Hidden;
+            SweetButton.Visibility = Visibility.Hidden;
+            DecafButton.Visibility = Visibility.Hidden;
+            LemonButton.Visibility = Visibility.Hidden;
+            AddIceButton.Visibility = Visibility.Hidden;
+            HoldIceButton.Visibility = Visibility.Hidden;
+            LeaveRoomForCreamButton.Visibility = Visibility.Hidden;
+
+            FlavorButton.Visibility = Visibility.Visible;
+            HoldIceButton.Visibility = Visibility.Visible;
+        }
+
+        void TyrannoteaVisibility()
+        {
+            FlavorButton.Visibility = Visibility.Hidden;
+            SweetButton.Visibility = Visibility.Hidden;
+            DecafButton.Visibility = Visibility.Hidden;
+            LemonButton.Visibility = Visibility.Hidden;
+            AddIceButton.Visibility = Visibility.Hidden;
+            HoldIceButton.Visibility = Visibility.Hidden;
+            LeaveRoomForCreamButton.Visibility = Visibility.Hidden;
+
+            SweetButton.Visibility = Visibility.Visible;
+            HoldIceButton.Visibility = Visibility.Visible;
+            LemonButton.Visibility = Visibility.Visible;
+        }
+
+        void JurassicJavaVisibility()
+        {
+            FlavorButton.Visibility = Visibility.Hidden;
+            SweetButton.Visibility = Visibility.Hidden;
+            DecafButton.Visibility = Visibility.Hidden;
+            LemonButton.Visibility = Visibility.Hidden;
+            AddIceButton.Visibility = Visibility.Hidden;
+            HoldIceButton.Visibility = Visibility.Hidden;
+            LeaveRoomForCreamButton.Visibility = Visibility.Hidden;
+
+            DecafButton.Visibility = Visibility.Visible;
+            AddIceButton.Visibility = Visibility.Visible;
+            LeaveRoomForCreamButton.Visibility = Visibility.Visible;
+        }
+
+        void WaterVisibility()
+        {
+            FlavorButton.Visibility = Visibility.Hidden;
+            SweetButton.Visibility = Visibility.Hidden;
+            DecafButton.Visibility = Visibility.Hidden;
+            LemonButton.Visibility = Visibility.Hidden;
+            AddIceButton.Visibility = Visibility.Hidden;
+            HoldIceButton.Visibility = Visibility.Hidden;
+            LeaveRoomForCreamButton.Visibility = Visibility.Hidden;
+
+            LemonButton.Visibility = Visibility.Visible;
+            HoldIceButton.Visibility = Visibility.Visible;
         }
     }
 }

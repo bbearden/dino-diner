@@ -43,6 +43,9 @@ namespace PointOfSale
             OrderControl.NavigationService = OrderUI.NavigationService;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void PassDataContentToPage()
         {
             if(OrderUI.Content is Page page)
@@ -51,14 +54,29 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnLoadCompleted(object sender, NavigationEventArgs args)
         {
             PassDataContentToPage();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
             PassDataContentToPage();
+        }
+
+        public void OnReturnToCategorySelection(object sender, RoutedEventArgs args)
+        {
+            OrderUI.NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 }

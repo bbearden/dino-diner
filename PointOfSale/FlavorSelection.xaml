@@ -24,7 +24,7 @@
         <Button Click="Flavor" Tag="Cola" Grid.Row="0" Grid.Column="0">
             <TextBlock FontWeight="ExtraBold">Cola</TextBlock>
         </Button>
-        <Button Click="Flavor" Tag="Root Beer" Grid.Row="0" Grid.Column="1">
+        <Button Click="Flavor" Tag="RootBeer" Grid.Row="0" Grid.Column="1">
             <TextBlock FontWeight="ExtraBold">Root Beer</TextBlock>
         </Button>
         <Button Click="Flavor" Tag="Orange" Grid.Row="0" Grid.Column="2">

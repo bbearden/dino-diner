@@ -1,0 +1,24 @@
+﻿<Page x:Class="PointOfSale.CustomizePrehistoricPBJ"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="600"
+      Title="CustomizePrehistoricPBJ">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Click="OnHoldPeanutButter" Grid.Column="0" FontWeight="ExtraBold">Hold Peanut Butter</Button>
+        <Button Click="OnHoldJelly" Grid.Column="2" FontWeight="ExtraBold">Hold Jelly</Button>
+        <Button Click="OnDone" Grid.Row="1" Grid.Column="1" FontWeight="ExtraBold">Done</Button>
+    </Grid>
+</Page>

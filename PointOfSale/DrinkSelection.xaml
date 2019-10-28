@@ -61,25 +61,25 @@
         <Button Name="MakeLarge" Tag="Large" Click="OnChangeSize" Grid.Row="2" Grid.Column="2">
             <TextBlock FontWeight="ExtraBold">Large</TextBlock>
         </Button>
-        <Button Name="FlavorButton" Click ="SelectFlavor" Grid.Row="0" Grid.Column="4" Visibility="Hidden">
+        <Button Name="FlavorButton" Click ="SelectFlavor" Grid.Row="0" Grid.Column="4">
             <TextBlock FontSize="11" FontWeight="ExtraBold">Flavor</TextBlock>
         </Button>
-        <Button Name="SweetButton" Click="OnMakeSweet" Grid.Row="0" Grid.Column="4" Visibility="Hidden">
+        <Button Name="SweetButton" Click="OnMakeSweet" Grid.Row="0" Grid.Column="4">
             <TextBlock FontSize="11" FontWeight="ExtraBold">Sweet</TextBlock>
         </Button>
-        <Button Name="DecafButton" Click="OnMakeDecaf" Grid.Row="0" Grid.Column="4" Visibility="Hidden">
+        <Button Name="DecafButton" Click="OnMakeDecaf" Grid.Row="0" Grid.Column="4">
             <TextBlock FontSize="11" FontWeight="ExtraBold">Decaf</TextBlock>
         </Button>
-        <Button Name="LemonButton" Click="OnAddLemon" Grid.Row="1" Grid.Column="4" Visibility="Hidden">
+        <Button Name="LemonButton" Click="OnAddLemon" Grid.Row="1" Grid.Column="4">
             <TextBlock FontWeight="ExtraBold">Add Lemon</TextBlock>
         </Button>
-        <Button Name="LeaveRoomForCreamButton" Click="OnRoomForCream" Grid.Row="1" Grid.Column="4" Visibility="Hidden">
+        <Button Name="LeaveRoomForCreamButton" Click="OnRoomForCream" Grid.Row="1" Grid.Column="4">
             <TextBlock FontWeight="ExtraBold">Room For Cream</TextBlock>
         </Button>
-        <Button Name="HoldIceButton" Click="OnHoldIce" Grid.Row="2" Grid.Column="4" Visibility="Hidden">
+        <Button Name="HoldIceButton" Click="OnHoldIce" Grid.Row="2" Grid.Column="4">
             <TextBlock FontWeight="ExtraBold">Hold Ice</TextBlock>
         </Button>
-        <Button Name="AddIceButton" Click="OnAddIce" Grid.Row="2" Grid.Column="4" Visibility="Hidden">
+        <Button Name="AddIceButton" Click="OnAddIce" Grid.Row="2" Grid.Column="4">
             <TextBlock FontWeight="ExtraBold">Add Ice</TextBlock>
         </Button>
         <Button Click="OnDone" Grid.Row="3" Grid.Column="3">

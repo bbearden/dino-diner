@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* OrderList.xaml.cs
+ * Author: Branden Bearden
+ */ 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,8 +29,16 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// allows to switch to each page depending on item selected on orderlist
+        /// </summary>
         public NavigationService NavigationService { get; set; }
 
+        /// <summary>
+        /// removes an item from the orderlist when x is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void RemoveItem(object sender, RoutedEventArgs args)
         {
             //casting
@@ -43,6 +54,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// goes to the page of the selected item on the order list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs args)
         {
             if(OrderItems.SelectedItem is Side side)
