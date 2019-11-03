@@ -1,8 +1,4 @@
-﻿/* MenuCategorySelection.xaml.cs
- * Author: Branden Bearden
- */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,57 +12,61 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MenuCategorySelection.xaml
+    /// Interaction logic for CustomizeVelociWrap.xaml
     /// </summary>
-    public partial class MenuCategorySelection : Page
+    public partial class CustomizeVelociWrap : Page
     {
-        public MenuCategorySelection()
+        private VelociWrap vw;
+
+        public CustomizeVelociWrap(VelociWrap vw)
         {
             InitializeComponent();
+            this.vw = vw;
         }
 
         /// <summary>
-        /// Opens CustomizeCombo page when the combo button is clicked
+        /// adds hold Romaine lettuce to description
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        void SelectCombo(object sender, RoutedEventArgs args)
+        private void OnHoldLettuce(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new CustomizeCombo());
+            vw.HoldLettuce();
         }
 
         /// <summary>
-        /// Opens EntreeSelection page when the entree button is clicked
+        /// adds hold Caesar Dressing to description
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        void SelectEntree(object sender, RoutedEventArgs args)
+        private void OnHoldDressing(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new EntreeSelection());
+            vw.HoldDressing();
         }
 
         /// <summary>
-        /// Opens SideSelection page when the side button is clicked
+        /// adds hold Parmesan Cheese to description
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        void SelectSide(object sender, RoutedEventArgs args)
+        private void OnHoldCheese(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new SideSelection());
+            vw.HoldCheese();
         }
 
         /// <summary>
-        /// Opens DrinkSeleciton page when the drink button is clicked
+        /// goes back to the previous page
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        void SelectDrink(object sender, RoutedEventArgs args)
+        private void OnDone(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new DrinkSelection());
+            NavigationService?.GoBack();
         }
     }
 }

@@ -27,7 +27,7 @@ namespace DinoDiner.Menu
             
         }
 
-        private double salesTaxRate = 0;
+        private double salesTaxRate = 0.0895;
 
         /// <summary>
         /// calculates the total price from all the items
@@ -113,7 +113,7 @@ namespace DinoDiner.Menu
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubTotalCost"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items")); //adds the nameof the selection to order list
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items")); //adds the name of the selection to order list
         }
     }
 }

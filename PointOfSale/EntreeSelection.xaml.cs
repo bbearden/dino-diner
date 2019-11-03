@@ -50,7 +50,7 @@ namespace PointOfSale
                 entree = new Brontowurst();
                 order.Add(entree);
             }
-            NavigationService?.Navigate(new MenuCategorySelection());
+            NavigationService?.Navigate(new CustomizeBrontowurst((Brontowurst)entree));
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace PointOfSale
                 entree = new DinoNuggets();
                 order.Add(entree);
             }
-            NavigationService?.Navigate(new MenuCategorySelection());
+            NavigationService?.Navigate(new CustomizeDinoNuggets((DinoNuggets)entree));
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace PointOfSale
                 entree = new SteakosaurusBurger();
                 order.Add(entree);
             }
-            NavigationService?.Navigate(new MenuCategorySelection());
+            NavigationService?.Navigate(new CustomizeSteakosaurusBurger((SteakosaurusBurger)entree));
         }
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace PointOfSale
                 entree = new TRexKingBurger();
                 order.Add(entree);
             }
-            NavigationService?.Navigate(new MenuCategorySelection());
+            NavigationService?.Navigate(new CustomizeTRexKingBurger((TRexKingBurger)entree));
         }
 
         /// <summary>
@@ -141,7 +141,7 @@ namespace PointOfSale
                 entree = new VelociWrap();
                 order.Add(entree);
             }
-            NavigationService?.Navigate(new MenuCategorySelection());
+            NavigationService?.Navigate(new CustomizeVelociWrap((VelociWrap)entree));
         }
     }
 }

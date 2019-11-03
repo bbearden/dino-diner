@@ -1,8 +1,4 @@
-﻿/* MenuCategorySelection.xaml.cs
- * Author: Branden Bearden
- */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,57 +12,61 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MenuCategorySelection.xaml
+    /// Interaction logic for CustomizeBrontowurst.xaml
     /// </summary>
-    public partial class MenuCategorySelection : Page
+    public partial class CustomizeBrontowurst : Page
     {
-        public MenuCategorySelection()
+        private Brontowurst bw;
+
+        public CustomizeBrontowurst(Brontowurst bw)
         {
             InitializeComponent();
+            this.bw = bw;
         }
 
         /// <summary>
-        /// Opens CustomizeCombo page when the combo button is clicked
+        /// adds hold Whole Wheat but to description
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        void SelectCombo(object sender, RoutedEventArgs args)
+        private void OnHoldBun(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new CustomizeCombo());
+            bw.HoldBun();
         }
 
         /// <summary>
-        /// Opens EntreeSelection page when the entree button is clicked
+        /// adds hold Peppers to description
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        void SelectEntree(object sender, RoutedEventArgs args)
+        private void OnHoldPeppers(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new EntreeSelection());
+            bw.HoldPeppers();
         }
 
         /// <summary>
-        /// Opens SideSelection page when the side button is clicked
+        /// adds hold Onion to description
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        void SelectSide(object sender, RoutedEventArgs args)
+        private void OnHoldOnion(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new SideSelection());
+            bw.HoldOnion();
         }
 
         /// <summary>
-        /// Opens DrinkSeleciton page when the drink button is clicked
+        /// goes back to the previous page
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        void SelectDrink(object sender, RoutedEventArgs args)
+        private void OnDone(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new DrinkSelection());
+            NavigationService?.GoBack();
         }
     }
 }

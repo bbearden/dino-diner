@@ -1,0 +1,24 @@
+﻿<Page x:Class="PointOfSale.CustomizeDinoNuggets"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="600"
+      Title="CustomizeDinoNuggets">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Click="OnAddNugget" FontWeight="ExtraBold" Grid.RowSpan="2">Add Nugget</Button>
+        <Button Click="OnDone" FontWeight="ExtraBold" Grid.Row="1" Grid.Column="2">Done</Button>
+    </Grid>
+</Page>

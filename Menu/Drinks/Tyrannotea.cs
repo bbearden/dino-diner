@@ -19,11 +19,20 @@ namespace DinoDiner.Menu
         /// </summary>
         private Size size;
 
+        private bool sweet;
+
         /// <summary>
         /// tells if the tea is sweet or not, initially false
         /// </summary>
-        public bool Sweet { get; set; } = false;
-
+        public bool Sweet
+        {
+            get { return sweet; }
+            set
+            {
+                sweet = value;
+                NotifyOfPropertyChanged("Description");
+            }
+        }
         /// <summary>
         /// tells if there is lemon in the drink, initially false
         /// </summary>
@@ -54,7 +63,7 @@ namespace DinoDiner.Menu
                 else if (size == Size.Large)
                 {
                     Price = 1.99;
-                    if (Sweet) Calories = 64; 
+                    if (Sweet) Calories = 64;
                     else Calories = 32;
                 }
                 NotifyOfPropertyChanged("Description");

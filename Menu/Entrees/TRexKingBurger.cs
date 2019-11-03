@@ -1,4 +1,4 @@
-﻿/* TRexBurgerKing.cs
+﻿/* TRexKingBurger.cs
  * Author: Branden Bearden
  */ 
 

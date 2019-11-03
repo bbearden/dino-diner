@@ -30,6 +30,16 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// opens the entrees screen when clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void SelectEntree(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new EntreeSelection());
+        }
+
+        /// <summary>
         /// opens SideSelection page when the side button is clicked
         /// </summary>
         /// <param name="sender"></param>
