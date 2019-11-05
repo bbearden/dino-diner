@@ -104,7 +104,7 @@ namespace DinoDiner.Menu
 
         public void Remove(IOrderItem item)
         {
-            items.Remove(item);
+             items.Remove(item);
              OnCollectionChanged(this, new EventArgs());
         }
 

@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* CustomizeTRexKingBurger.xaml.cs
+ * Author: Branden Bearden
+ */ 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,12 +24,35 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeTRexKingBurger : Page
     {
+        /// <summary>
+        /// backing variable for TRexKingBurger
+        /// </summary>
         private TRexKingBurger trex;
 
+        /// <summary>
+        /// backing variable for CretaceousCombo
+        /// </summary>
+        private CretaceousCombo combo;
+
+        /// <summary>
+        /// Constructor for if the Burger is a separate entree
+        /// </summary>
+        /// <param name="trex"></param>
         public CustomizeTRexKingBurger(TRexKingBurger trex)
         {
             InitializeComponent();
             this.trex = trex;
+        }
+
+        /// <summary>
+        /// Constructor for if the burger is apart of a combo
+        /// </summary>
+        /// <param name="combo"></param>
+        public CustomizeTRexKingBurger(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            trex = (TRexKingBurger)combo.Entree;
         }
 
         /// <summary>
@@ -110,13 +136,17 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// goes back to the previous page
+        /// goes back to the page based on if it is in a combo or a separate entree
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
-            NavigationService?.GoBack();
+            if(combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
+            else NavigationService?.GoBack();
         }
     }
 }

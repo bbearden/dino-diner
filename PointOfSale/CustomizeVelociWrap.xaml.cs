@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* CustomizeVelociWrap.xaml.cs
+ * Author: Branden Bearden
+ */ 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,12 +24,35 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeVelociWrap : Page
     {
+        /// <summary>
+        /// Backing varaiable for velociwrap
+        /// </summary>
         private VelociWrap vw;
 
+        /// <summary>
+        /// Backing variable for CretaceousCombo
+        /// </summary>
+        private CretaceousCombo combo;
+
+        /// <summary>
+        /// Constructor for if the wrap is a separate entree
+        /// </summary>
+        /// <param name="vw"></param>
         public CustomizeVelociWrap(VelociWrap vw)
         {
             InitializeComponent();
             this.vw = vw;
+        }
+
+        /// <summary>
+        /// Constructor for if the wrap is apart of a combo
+        /// </summary>
+        /// <param name="combo"></param>
+        public CustomizeVelociWrap(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            vw = (VelociWrap)combo.Entree;
         }
 
         /// <summary>
@@ -60,13 +86,17 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// goes back to the previous page
+        /// goes back to the page based on if it is in a combo or separate entree
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
-            NavigationService?.GoBack();
+            if(combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
+            else NavigationService?.GoBack();
         }
     }
 }

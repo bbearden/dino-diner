@@ -24,12 +24,35 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeSteakosaurusBurger : Page
     {
+        /// <summary>
+        /// backing variable for SteakosaurusBurger
+        /// </summary>
         private SteakosaurusBurger sb;
 
+        /// <summary>
+        /// backing variable for CretaceousCombo
+        /// </summary>
+        private CretaceousCombo combo;
+
+        /// <summary>
+        /// Constructor for if the Burger is a separate entree
+        /// </summary>
+        /// <param name="sb"></param>
         public CustomizeSteakosaurusBurger(SteakosaurusBurger sb)
         {
             InitializeComponent();
             this.sb = sb;
+        }
+
+        /// <summary>
+        /// Constructor for if the Burger is apart of a combo
+        /// </summary>
+        /// <param name="combo"></param>
+        public CustomizeSteakosaurusBurger(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            sb = (SteakosaurusBurger)combo.Entree;
         }
 
         /// <summary>
@@ -73,13 +96,17 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// goes back to the previous page
+        /// goes back to the page based on if it is in a combo or a separate entree
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
-            NavigationService?.GoBack();
+            if(combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
+            else NavigationService?.GoBack();
         }
     }
 }

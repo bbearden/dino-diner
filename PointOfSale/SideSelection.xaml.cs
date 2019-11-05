@@ -26,17 +26,43 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+        /// <summary>
+        /// Backing variable for Side
+        /// </summary>
         private Side side;
 
+        /// <summary>
+        /// Backing variable for CretaceousCombo
+        /// </summary>
+        private CretaceousCombo combo;
+
+        /// <summary>
+        /// Constructor for a new Side
+        /// </summary>
         public SideSelection()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Constructor for editing a side
+        /// </summary>
+        /// <param name="side"></param>
         public SideSelection(Side side)
         {
             InitializeComponent();
             this.side = side;
+        }
+
+        /// <summary>
+        /// constructor for selecting a side for a combo
+        /// </summary>
+        /// <param name="combo"></param>
+        public SideSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            side = combo.Side;
         }
 
         /// <summary>
@@ -48,8 +74,17 @@ namespace PointOfSale
         {
             if(DataContext is Order order)
             {
-                side = new Fryceritops();
-                order.Add(side);
+                if (combo == null)
+                {
+                    side = new Fryceritops();
+                    order.Add(side);
+                }
+                else
+                {
+                    side = new Fryceritops();
+                    combo.Side = side; //for adding side to the combo but dont have representation of a full combo in orderlist yet
+                    order.Add(side);
+                }
             }
         }
 
@@ -62,8 +97,17 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                side = new MeteorMacAndCheese();
-                order.Add(side);
+                if (combo == null)
+                {
+                    side = new MeteorMacAndCheese();
+                    order.Add(side);
+                }
+                else
+                {
+                    side = new MeteorMacAndCheese();
+                    combo.Side = side;
+                    order.Add(side);
+                }
             }
         }
 
@@ -76,8 +120,17 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                side = new MezzorellaSticks();
-                order.Add(side);
+                if (combo == null)
+                {
+                    side = new MezzorellaSticks();
+                    order.Add(side);
+                }
+                else
+                {
+                    side = new MezzorellaSticks();
+                    combo.Side = side;
+                    order.Add(side);
+                }
             }
         }
 
@@ -90,8 +143,17 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                side = new Triceritots();
-                order.Add(side);
+                if (combo == null)
+                {
+                    side = new Triceritots();
+                    order.Add(side);
+                }
+                else
+                {
+                    side = new Triceritots();
+                    combo.Side = side;
+                    order.Add(side);
+                }
             }
         }
 
@@ -104,12 +166,13 @@ namespace PointOfSale
         {
             if(sender is FrameworkElement element)
             {
-                side.Size = (DDsize)Enum.Parse(typeof(DDsize), element.Tag.ToString());  
-                NavigationService?.Navigate(new MenuCategorySelection());
-            }
-            
+                side.Size = (DDsize)Enum.Parse(typeof(DDsize), element.Tag.ToString());
+                if(combo != null)
+                {
+                    NavigationService?.Navigate(new CustomizeCombo(combo));
+                }
+                else NavigationService?.Navigate(new MenuCategorySelection());
+            }        
         }
-
-
     }
 }

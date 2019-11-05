@@ -27,10 +27,10 @@ namespace PointOfSale
         /// <summary>
         /// the drink that is having flavor added to it
         /// </summary>
-        private Sodasaurus soda;
+        private Sodasaurus soda = new Sodasaurus();
 
         /// <summary>
-        /// 
+        /// constructor for FlavorSelection
         /// </summary>
         /// <param name="soda"></param>
         public FlavorSelection(Sodasaurus soda)
@@ -40,7 +40,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// Lets you change the flavor of your soda
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>

@@ -1,7 +1,6 @@
 ﻿/* CustomizeCombo.xaml.cs
  * Author: Branden Bearden
  */
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -24,20 +24,21 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCombo : Page
     {
-        public CustomizeCombo()
-        {
-            InitializeComponent();
-        }
+        /// <summary>
+        /// backing variable for CretaceousCombo
+        /// </summary>
+        private CretaceousCombo combo;
 
         /// <summary>
-        /// opens the entrees screen when clicked
+        /// Constructor for a combo
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void SelectEntree(object sender, RoutedEventArgs args)
+        /// <param name="combo"></param>
+        public CustomizeCombo(CretaceousCombo combo)
         {
-            NavigationService.Navigate(new EntreeSelection());
+            InitializeComponent();
+            this.combo = combo;
         }
+
 
         /// <summary>
         /// opens SideSelection page when the side button is clicked
@@ -46,7 +47,11 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void SelectSide(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new SideSelection());
+            if(combo != null)
+            {
+                NavigationService.Navigate(new SideSelection(combo));
+            }
+            else NavigationService.Navigate(new SideSelection());
         }
 
         /// <summary>
@@ -56,7 +61,11 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void SelectDrink(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new DrinkSelection());
+            if(combo != null)
+            {
+                NavigationService.Navigate(new DrinkSelection(combo));
+            }
+            else NavigationService.Navigate(new DrinkSelection());
         }
     }
 }

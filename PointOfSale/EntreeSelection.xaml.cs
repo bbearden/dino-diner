@@ -1,7 +1,6 @@
 ﻿/* EntreeSelection.xaml.cs
  * Author: Branden Bearden
  */
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,13 +24,23 @@ namespace PointOfSale
     /// </summary>
     public partial class EntreeSelection : Page
     {
+        /// <summary>
+        /// Backing variable for Entree
+        /// </summary>
         private Entree entree;
 
+        /// <summary>
+        /// Construtor for a new entree
+        /// </summary>
         public EntreeSelection()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Constuctor to edit already added entree
+        /// </summary>
+        /// <param name="entree"></param>
         public EntreeSelection(Entree entree)
         {
             InitializeComponent();

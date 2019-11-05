@@ -21,8 +21,7 @@
             </ColumnDefinition>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Click="SelectEntree" Grid.Column="0" FontWeight="ExtraBold">Entree</Button>
-        <Button Click="SelectSide" Grid.Column="1">
+        <Button Click="SelectSide">
             <TextBlock FontWeight="ExtraBold">Side</TextBlock>
         </Button>
         <Button Click="SelectDrink" Grid.Row="0" Grid.Column="2">

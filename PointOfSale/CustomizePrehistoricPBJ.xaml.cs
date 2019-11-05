@@ -24,12 +24,36 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizePrehistoricPBJ : Page
     {
+        /// <summary>
+        /// Backing variable for PrehistoricPBJ
+        /// </summary>
         private PrehistoricPBJ pbj;
 
+        /// <summary>
+        /// Backing variable for CretaceousCombo
+        /// </summary>
+        private CretaceousCombo combo;
+
+        /// <summary>
+        /// Constructor for if the PBJ is a separate entree
+        /// </summary>
+        /// <param name="pbj"></param>
         public CustomizePrehistoricPBJ(PrehistoricPBJ pbj)
         {
             InitializeComponent();
             this.pbj = pbj;
+        }
+
+        /// <summary>
+        /// Constructor for it the PBJ is in a combo
+        /// </summary>
+        /// <param name="combo"></param>
+        public CustomizePrehistoricPBJ(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            pbj = (PrehistoricPBJ)combo.Entree;
+
         }
 
         /// <summary>
@@ -53,13 +77,17 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// goes back to the previous page
+        /// goes back to the page based on if it is in a combo or a separate entree
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
-            NavigationService?.GoBack();
+            if(combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
+            else NavigationService?.GoBack();
         }
     }
 }

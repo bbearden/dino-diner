@@ -20,43 +20,43 @@
             </ColumnDefinition>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Click="CustomizeCombo" VerticalContentAlignment="Bottom" Grid.Row="0" Grid.Column="0">
+        <Button Click="CustomizeBrontowurst" VerticalContentAlignment="Bottom" Grid.Row="0" Grid.Column="0">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-01.png"></ImageBrush>
             </Button.Background>
             <TextBlock FontWeight="ExtraBold">Brontowurst Combo</TextBlock>
         </Button>
-        <Button Click="CustomizeCombo" VerticalContentAlignment="Bottom" Grid.Row="0" Grid.Column="1">
+        <Button Click="CustomizeDinoNuggets" VerticalContentAlignment="Bottom" Grid.Row="0" Grid.Column="1">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-02.png"></ImageBrush>
             </Button.Background>
             <TextBlock FontWeight="ExtraBold">Dino-Nuggets Combo</TextBlock>
         </Button>
-        <Button Click="CustomizeCombo" VerticalContentAlignment="Bottom" Grid.Row="0" Grid.Column="2">
+        <Button Click="CustomizePrehistoricPBJ" VerticalContentAlignment="Bottom" Grid.Row="0" Grid.Column="2">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-03.png"></ImageBrush>
             </Button.Background>
             <TextBlock FontWeight="ExtraBold">Prehistoric PB&amp;J Combo</TextBlock>
         </Button>
-        <Button Click="CustomizeCombo" VerticalContentAlignment="Bottom" Grid.Row="1" Grid.Column="0">
+        <Button Click="CustomizePterodactylWings" VerticalContentAlignment="Bottom" Grid.Row="1" Grid.Column="0">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-04.png"></ImageBrush>
             </Button.Background>
             <TextBlock FontWeight="ExtraBold">Pterodactyl Wings Combo</TextBlock>
         </Button>
-        <Button Click="CustomizeCombo" VerticalContentAlignment="Bottom" Grid.Row="1" Grid.Column="1">
+        <Button Click="CustomizeSteakosaurus" VerticalContentAlignment="Bottom" Grid.Row="1" Grid.Column="1">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-05.png"></ImageBrush>
             </Button.Background>
             <TextBlock FontWeight="ExtraBold">Steakosaurus Combo</TextBlock>
         </Button>
-        <Button Click="CustomizeCombo" VerticalContentAlignment="Bottom" Grid.Row="1" Grid.Column="2">
+        <Button Click="CustomizeTRexKing" VerticalContentAlignment="Bottom" Grid.Row="1" Grid.Column="2">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-06.png"></ImageBrush>
             </Button.Background>
             <TextBlock FontWeight="ExtraBold">T-Rex King Combo</TextBlock>
         </Button>
-        <Button Click="CustomizeCombo" VerticalContentAlignment="Bottom" Grid.Row="2" Grid.Column="1">
+        <Button Click="CustomizeVelociWrap" VerticalContentAlignment="Bottom" Grid.Row="2" Grid.Column="1">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-07.png"></ImageBrush>
             </Button.Background>

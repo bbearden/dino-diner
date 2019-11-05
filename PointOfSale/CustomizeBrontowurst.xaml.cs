@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* CustomizeBrontowurst.xaml.cs
+ * Author: Branden Bearden
+ */ 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,8 +24,20 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeBrontowurst : Page
     {
+        /// <summary>
+        /// backing variable for Brontowurst
+        /// </summary>
         private Brontowurst bw;
 
+        /// <summary>
+        /// backing variable for CretaceousCombo
+        /// </summary>
+        private CretaceousCombo combo;
+
+        /// <summary>
+        /// Constructor for Brontowurst as a separate entree
+        /// </summary>
+        /// <param name="bw"></param>
         public CustomizeBrontowurst(Brontowurst bw)
         {
             InitializeComponent();
@@ -30,7 +45,18 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// adds hold Whole Wheat but to description
+        /// Constructor for Brontowurst in a combo
+        /// </summary>
+        /// <param name="combo"></param>
+        public CustomizeBrontowurst(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            bw = (Brontowurst)combo.Entree;
+        }
+
+        /// <summary>
+        /// adds hold Whole Wheat bun to description
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
@@ -60,13 +86,17 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// goes back to the previous page
+        /// goes back to the page based on if it is in a combo or separate entree
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
-            NavigationService?.GoBack();
+            if(combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
+            else NavigationService?.GoBack();
         }
     }
 }
