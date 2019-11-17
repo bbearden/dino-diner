@@ -27,13 +27,13 @@
         <Button Click="SelectDrink" Grid.Row="0" Grid.Column="2">
             <TextBlock FontWeight="ExtraBold">Drink</TextBlock>
         </Button>
-        <Button Grid.Row="2" Grid.Column="0">
+        <Button Grid.Row="2" Grid.Column="0" Click="OnChangeSize" Tag="Small">
             <TextBlock FontWeight="ExtraBold">Small</TextBlock>
         </Button>
-        <Button Grid.Row="2" Grid.Column="1">
+        <Button Grid.Row="2" Grid.Column="1" Click="OnChangeSize" Tag="Medium">
             <TextBlock FontWeight="ExtraBold">Medium</TextBlock>
         </Button>
-        <Button Grid.Row="2" Grid.Column="2">
+        <Button Grid.Row="2" Grid.Column="2" Click="OnChangeSize" Tag="Large">
             <TextBlock FontWeight="ExtraBold">Large</TextBlock>
         </Button>
     </Grid>

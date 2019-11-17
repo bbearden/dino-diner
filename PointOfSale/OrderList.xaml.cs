@@ -59,7 +59,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnSelectionChanged(object sender, SelectionChangedEventArgs args)
+        private void OnSelectionChanged(object sender, EventArgs args)
         {
             if(OrderItems.SelectedItem is Side side)
             {
@@ -74,6 +74,11 @@ namespace PointOfSale
             if (OrderItems.SelectedItem is Entree entree)
             {
                 NavigationService?.Navigate(new EntreeSelection(entree));
+            }
+
+            if(OrderItems.SelectedItem is CretaceousCombo combo)
+            {
+                NavigationService?.Navigate(new CustomizeCombo(combo));
             }
         }
     }

@@ -82,8 +82,7 @@ namespace PointOfSale
                 else
                 {
                     side = new Fryceritops();
-                    combo.Side = side; //for adding side to the combo but dont have representation of a full combo in orderlist yet
-                    order.Add(side);
+                    combo.Side = side;
                 }
             }
         }
@@ -106,7 +105,6 @@ namespace PointOfSale
                 {
                     side = new MeteorMacAndCheese();
                     combo.Side = side;
-                    order.Add(side);
                 }
             }
         }
@@ -129,7 +127,6 @@ namespace PointOfSale
                 {
                     side = new MezzorellaSticks();
                     combo.Side = side;
-                    order.Add(side);
                 }
             }
         }
@@ -152,7 +149,6 @@ namespace PointOfSale
                 {
                     side = new Triceritots();
                     combo.Side = side;
-                    order.Add(side);
                 }
             }
         }
@@ -164,15 +160,18 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void OnChangeSize(object sender, RoutedEventArgs args)
         {
-            if(sender is FrameworkElement element)
+            if (side != null)
             {
-                side.Size = (DDsize)Enum.Parse(typeof(DDsize), element.Tag.ToString());
-                if(combo != null)
+                if (sender is FrameworkElement element)
                 {
-                    NavigationService?.Navigate(new CustomizeCombo(combo));
+                    side.Size = (DDsize)Enum.Parse(typeof(DDsize), element.Tag.ToString());
+                    if (combo != null)
+                    {
+                        NavigationService?.Navigate(new CustomizeCombo(combo));
+                    }
+                    else NavigationService?.Navigate(new MenuCategorySelection());
                 }
-                else NavigationService?.Navigate(new MenuCategorySelection());
-            }        
+            }
         }
     }
 }

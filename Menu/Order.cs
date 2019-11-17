@@ -27,8 +27,6 @@ namespace DinoDiner.Menu
             
         }
 
-        private double salesTaxRate = 0.0895;
-
         /// <summary>
         /// calculates the total price from all the items
         /// </summary>
@@ -49,6 +47,8 @@ namespace DinoDiner.Menu
             }
         }
 
+        private double salesTaxRate = 0.0895;
+        
         /// <summary>
         /// sales tax rate
         /// </summary>

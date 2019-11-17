@@ -28,7 +28,7 @@ namespace PointOfSale
         /// <summary>
         /// variable holding current drink type on the Order list
         /// </summary>
-        private Drink drink;
+        public Drink drink { get; set; }
 
         /// <summary>
         /// sodasaurus instance
@@ -126,7 +126,6 @@ namespace PointOfSale
                     drink = new Sodasaurus();
                     soda = (Sodasaurus)drink;
                     combo.Drink = drink;
-                    order.Add(drink);
                 }
             }
         }
@@ -153,7 +152,6 @@ namespace PointOfSale
                     drink = new Tyrannotea();
                     tea = (Tyrannotea)drink;
                     combo.Drink = drink;
-                    order.Add(drink);
                 }
             }
         }
@@ -180,7 +178,7 @@ namespace PointOfSale
                     drink = new JurassicJava();
                     java = (JurassicJava)drink;
                     combo.Drink = drink;
-                    order.Add(drink);
+
                 }
             }
         }
@@ -207,7 +205,6 @@ namespace PointOfSale
                     drink = new Water();
                     water = (Water)drink;
                     combo.Drink = drink;
-                    order.Add(drink);
                 }
             }
         }
@@ -219,8 +216,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void SelectFlavor(object sender, RoutedEventArgs args)
         {
-            soda = (Sodasaurus)drink;//allows flavor to be selected
-            NavigationService.Navigate(new FlavorSelection(soda));
+            if (combo == null)
+            {
+                NavigationService.Navigate(new FlavorSelection(soda));
+            }
+            else
+            {
+                NavigationService.Navigate(new FlavorSelection(combo));
+            }
         }
 
         /// <summary>
@@ -235,6 +238,10 @@ namespace PointOfSale
                 tea = (Tyrannotea)drink; //allows sweet to be added
                 tea.AddSweetener();
                 //drink = tea; was how sweet was originally added
+                if (combo != null)
+                {
+                    combo.Drink = tea;
+                }
             }
         }
 
@@ -249,6 +256,10 @@ namespace PointOfSale
             {
                 java = (JurassicJava)drink;
                 java.Decafinate();
+                if (combo != null)
+                {
+                    combo.Drink = java;
+                }
             }
         }
 
@@ -265,12 +276,20 @@ namespace PointOfSale
                 {
                     water = (Water)drink;
                     water.AddLemon();
+                    if (combo != null)
+                    {
+                        combo.Drink = water;
+                    }
                 }
 
                 if(drink is Tyrannotea)
                 {
                     tea = (Tyrannotea)drink;
                     tea.AddLemon();
+                    if (combo != null)
+                    {
+                        combo.Drink = tea;
+                    }
                 }
             }
         }
@@ -286,6 +305,10 @@ namespace PointOfSale
             {
                 java = (JurassicJava)drink;
                 java.LeaveRoomForCream();
+                if (combo != null)
+                {
+                    combo.Drink = java;
+                }
             }
         }
 
@@ -298,22 +321,35 @@ namespace PointOfSale
         {
             if(DataContext is Order order)
             {
+
                 if(drink is Sodasaurus)
                 {
                     soda = (Sodasaurus)drink;
                     soda.HoldIce();
+                    if(combo != null)
+                    {
+                        combo.Drink = soda;
+                    }
                 }
 
                 if(drink is Tyrannotea)
                 {
                     tea = (Tyrannotea)drink;
                     tea.HoldIce();
+                    if (combo != null)
+                    {
+                        combo.Drink = tea;
+                    }
                 }
 
                 if(drink is Water)
                 {
                     water = (Water)drink;
                     water.HoldIce();
+                    if (combo != null)
+                    {
+                        combo.Drink = water;
+                    }
                 }
             }
         }
@@ -329,6 +365,10 @@ namespace PointOfSale
             {
                 java = (JurassicJava)drink;
                 java.AddIce();
+                if(combo != null)
+                {
+                    combo.Drink = java;
+                }
             }
         }
 
@@ -355,8 +395,12 @@ namespace PointOfSale
         {
             if (sender is FrameworkElement element)
             {
-                drink.Size = (DDsize)Enum.Parse(typeof(DDsize), element.Tag.ToString());
+                if (combo == null)
+                {
+                    drink.Size = (DDsize)Enum.Parse(typeof(DDsize), element.Tag.ToString());
+                }
             }
+            
         }
 
         /// <summary>

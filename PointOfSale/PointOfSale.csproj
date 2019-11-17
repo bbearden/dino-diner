@@ -218,5 +218,15 @@
     <Resource Include="Assets\DinoDiner-14.png" />
     <Resource Include="Assets\DinoDiner-15.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Meals\DinoDiner-16.png" />
+    <Resource Include="Meals\DinoDiner-17.png" />
+    <Resource Include="Meals\DinoDiner-18.png" />
+    <Resource Include="Meals\DinoDiner-19.png" />
+    <Resource Include="Meals\DinoDiner-20.png" />
+    <Resource Include="Meals\DinoDiner-21.png" />
+    <Resource Include="Meals\DinoDiner-22.png" />
+    <Resource Include="Meals\DinoDiner-23.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DinoDiner.Menu;
+using DDsize = DinoDiner.Menu.Size;
 
 namespace PointOfSale
 {
@@ -47,11 +48,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void SelectSide(object sender, RoutedEventArgs e)
         {
-            if(combo != null)
-            {
-                NavigationService.Navigate(new SideSelection(combo));
-            }
-            else NavigationService.Navigate(new SideSelection());
+            NavigationService.Navigate(new SideSelection(combo));
         }
 
         /// <summary>
@@ -61,11 +58,20 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void SelectDrink(object sender, RoutedEventArgs e)
         {
-            if(combo != null)
+            NavigationService.Navigate(new DrinkSelection(combo));
+        }
+
+        /// <summary>
+        /// changes the size of the drink and side in the combo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnChangeSize(object sender, RoutedEventArgs args)
+        {
+            if(sender is FrameworkElement element)
             {
-                NavigationService.Navigate(new DrinkSelection(combo));
+                combo.Size = (DDsize)Enum.Parse(typeof(DDsize), element.Tag.ToString());
             }
-            else NavigationService.Navigate(new DrinkSelection());
         }
     }
 }

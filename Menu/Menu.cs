@@ -131,7 +131,7 @@ namespace DinoDiner.Menu
                 {
                     if(menuItem is Entree)
                     {
-                        availableCombos.Add((CretaceousCombo)menuItem);
+                        availableCombos.Add(new CretaceousCombo((Entree)menuItem));
                     }
                 }
                 return availableCombos;

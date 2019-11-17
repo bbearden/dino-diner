@@ -29,14 +29,26 @@ namespace PointOfSale
         /// </summary>
         private Sodasaurus soda = new Sodasaurus();
 
+        private CretaceousCombo combo;
+
         /// <summary>
-        /// constructor for FlavorSelection
+        /// FlavorSelection constructor when the drink is not in a combo
         /// </summary>
         /// <param name="soda"></param>
         public FlavorSelection(Sodasaurus soda)
         {
             InitializeComponent();
             this.soda = soda;
+        }
+
+        /// <summary>
+        /// FlavorSelection constructor is the soda is in a combo
+        /// </summary>
+        /// <param name="combo"></param>
+        public FlavorSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
         }
 
         /// <summary>
@@ -49,6 +61,10 @@ namespace PointOfSale
             if (sender is FrameworkElement element)
             {
                 soda.Flavor = (DinoDiner.Menu.SodasaurusFlavor)Enum.Parse(typeof(DinoDiner.Menu.SodasaurusFlavor), element.Tag.ToString());
+                if(combo != null)
+                {
+                    combo.Drink = soda;
+                }
             }
             NavigationService.GoBack();     
         }

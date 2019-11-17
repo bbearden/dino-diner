@@ -19,10 +19,10 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="Order" FontWeight="Bold" TextAlignment="Right"/>
         <TextBlock Text="#" FontWeight="Bold" Grid.Column="1" Margin="5,0,0,0"/>
-        <ListBox Name="OrderItems" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Items}" SelectionChanged="OnSelectionChanged" IsSynchronizedWithCurrentItem="True">
+        <ListBox Name="OrderItems" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Items}" SelectionChanged="OnSelectionChanged" IsSynchronizedWithCurrentItem="True" MouseDoubleClick="OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Width="190">
+                    <StackPanel MinWidth="190">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>

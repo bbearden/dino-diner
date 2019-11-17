@@ -13,7 +13,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Combo class
     /// </summary>
-    public class CretaceousCombo : INotifyPropertyChanged
+    public class CretaceousCombo : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// An event handler for PropertyChanged events
@@ -64,6 +64,11 @@ namespace DinoDiner.Menu
             {
                 side = value;
                 side.Size = size;
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Ingredients");
             }
         }
 
@@ -82,11 +87,11 @@ namespace DinoDiner.Menu
             {
                 drink = value;
                 drink.Size = size;
-               //NotifyOfPropertyChanged("Ingredients");
-                //NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Special");
                 NotifyOfPropertyChanged("Price");
-                //NotifyOfPropertyChanged("Calories");
-                //NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Calories");
+                
             }
         }
 
@@ -129,10 +134,10 @@ namespace DinoDiner.Menu
                 Drink.Size = value; // = value or size
                 Side.Size = value; // = value or size
 
-                //NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Size");
                 NotifyOfPropertyChanged("Special");
                 NotifyOfPropertyChanged("Price");
-                //NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Calories");
                 NotifyOfPropertyChanged("Description");
             }
         }
