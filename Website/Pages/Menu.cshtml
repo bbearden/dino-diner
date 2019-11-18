@@ -7,6 +7,53 @@
 <h1>Menu</h1>
 
 <h2>Combos</h2>
+@for (int i = 0; i < @Model.Menu.availableCombos.Count; i++)
+{
+    <div class="menu-item">
+        <ul>
+            <li>Combo: @Model.Menu.availableCombos[i]</li>
+            <li>Price: @Model.Menu.availableCombos[i].Price</li>
+            <li>Calories: @Model.Menu.availableCombos[i].Calories</li>
+            <li>Ingredients: @Model.Menu.availableCombos[i].Ingredients</li>
+        </ul>
+    </div>
+}
+
 <h2>Entrees</h2>
+@for (int i = 0; i < @Model.Menu.AvailableEntrees.Count; i++)
+{
+    <div class="menu-item">
+        <ul>
+            <li>Combo: @Model.Menu.AvailableEntrees[i]</li>
+            <li>Price: @Model.Menu.AvailableEntrees[i].Price</li>
+            <li>Calories: @Model.Menu.AvailableEntrees[i].Calories</li>
+            <li>Ingredients: @Model.Menu.AvailableEntrees[i].Ingredients</li>
+        </ul>
+    </div>
+}
+
 <h2>Sides</h2>
+@for (int i = 0; i < @Model.Menu.AvailableSides.Count; i++)
+{
+    <div class="menu-item">
+        <ul>
+            <li>Combo: @Model.Menu.AvailableSides[i]</li>
+            <li>Price: @Model.Menu.AvailableSides[i].Price</li>
+            <li>Calories: @Model.Menu.AvailableSides[i].Calories</li>
+            <li>Ingredients: @Model.Menu.AvailableSides[i].Ingredients</li>
+        </ul>
+    </div>
+}
+
 <h2>Drinks</h2>
+@for (int i = 0; i < @Model.Menu.AvailableDrinks.Count; i++)
+{
+    <div class="menu-item">
+        <ul>
+            <li>Combo: @Model.Menu.AvailableDrinks[i]</li>
+            <li>Price: @Model.Menu.AvailableDrinks[i].Price</li>
+            <li>Calories: @Model.Menu.AvailableDrinks[i].Calories</li>
+            <li>Ingredients: @Model.Menu.AvailableDrinks[i].Ingredients</li>
+        </ul>
+    </div>
+}
