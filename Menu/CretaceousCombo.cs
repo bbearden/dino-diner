@@ -44,7 +44,10 @@ namespace DinoDiner.Menu
                 {
                     NotifyOfPropertyChanged(args.PropertyName);
                 };
-                
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Ingredients");
             }
 
         }
@@ -150,9 +153,9 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> ingredients = new List<string>();
-                Ingredients.AddRange(Entree.Ingredients);
-                Ingredients.AddRange(Side.Ingredients);
-                Ingredients.AddRange(Drink.Ingredients);
+                ingredients.AddRange(Entree.Ingredients);
+                ingredients.AddRange(Side.Ingredients);
+                ingredients.AddRange(Drink.Ingredients);
                 return ingredients;
             }
         }

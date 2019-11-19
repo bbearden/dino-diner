@@ -122,7 +122,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// All available DinoDiner Combos
         /// </summary>
-        public List<CretaceousCombo> availableCombos
+        public List<CretaceousCombo> AvailableCombos
         {
             get
             {
