@@ -95,7 +95,13 @@ namespace Website.Pages
                 Drinks = FilterByMaxPrice(Drinks, (float)maximumPrice);
             }
 
-            //add if ingredient.count != 0 ???
+            if(ingredient.Count != 0)
+            {
+                Combos = FilterByExcludedIngredients(Combos, ingredient);
+                Entrees = FilterByExcludedIngredients(Entrees, ingredient);
+                Sides = FilterByExcludedIngredients(Sides, ingredient);
+                Drinks = FilterByExcludedIngredients(Drinks, ingredient);
+            }
         }
 
         /// <summary>
@@ -151,11 +157,11 @@ namespace Website.Pages
         /// <param name="menu"></param>
         /// <param name="price">the filter price</param>
         /// <returns></returns>
-        public static List<IMenuItem> FilterByMinPrice(List<IMenuItem> menu, float price)
+        public static List<IMenuItem> FilterByMinPrice(List<IMenuItem> category, float price)
         {
             List<IMenuItem> result = new List<IMenuItem>();
 
-            foreach(IMenuItem item in menu)
+            foreach(IMenuItem item in category)
             {
                 if(price <= item.Price)
                 {
@@ -171,13 +177,28 @@ namespace Website.Pages
         /// <param name="menu"></param>
         /// <param name="price"></param>
         /// <returns></returns>
-        public static List<IMenuItem> FilterByMaxPrice(List<IMenuItem> menu, float price)
+        public static List<IMenuItem> FilterByMaxPrice(List<IMenuItem> category, float price)
         {
             List<IMenuItem> result = new List<IMenuItem>();
 
-            foreach (IMenuItem item in menu)
+            foreach (IMenuItem item in category)
             {
                 if (price >= item.Price)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+
+
+        public static List<IMenuItem> FilterByExcludedIngredients(List<IMenuItem> category, List<string> excluded)
+        {
+            List<IMenuItem> result = new List<IMenuItem>();
+
+            foreach(IMenuItem item in category)
+            {
+                if (!excluded.Contains(item.Ingredients.ToString()))
                 {
                     result.Add(item);
                 }
