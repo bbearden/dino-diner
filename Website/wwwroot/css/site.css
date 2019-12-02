@@ -17,3 +17,20 @@ body {
     height: 600px;
 }
 
+.content {
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+}
+
+form {
+    width: 200px;
+    background-color: lightgray;
+    flex-grow: 0;
+    padding: 50px;
+}
+
+.checkbox-list {
+    display: flex;
+    flex-direction: column;
+}

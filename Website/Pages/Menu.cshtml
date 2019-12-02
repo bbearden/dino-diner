@@ -4,68 +4,116 @@
     ViewData["Title"] = "Menu";
 }
 
-<h1>Menu</h1>
+    <div class="content">
+        <div class="results">
+            <h1>Menu</h1>
+
+            <h2>Combos</h2>
+            <div id="combos-list">
+                @for (int i = 0; i < Model.Combos.Count; i++)
+                {
+                    <div class="menu-item">
+                        <h3>@Model.Combos[i].ToString()</h3>
+                        <ul>
+                            <li>Price: $@Model.Combos[i].Price</li>
+                            <li>Calories: @Model.Combos[i].Calories</li>
+                            <li>Ingredients: @string.Join(", ", Model.Combos[i].Ingredients)</li>
+                        </ul>
+                    </div>
+                }
+            </div>
 
 
-<h2>Combos</h2>
-<div id="combos-list">
-    @for (int i = 0; i < Model.Menu.AvailableCombos.Count; i++)
-    {
-        <div class="menu-item">
-            <h3 >@Model.Menu.AvailableCombos[i].ToString()</h3>
-            <ul>
-                <li>Price: $@Model.Menu.AvailableCombos[i].Price</li>
-                <li>Calories: @Model.Menu.AvailableCombos[i].Calories</li>
-                <li>Ingredients: @string.Join(", ", Model.Menu.AvailableCombos[i].Ingredients)</li>
-            </ul>
+            <h2>Entrees</h2>
+            <div id="entrees-list">
+                @for (int i = 0; i < @Model.Entrees.Count; i++)
+                {
+                    <div class="menu-item">
+                        <h3>@Model.Entrees[i].ToString()</h3>
+                        <ul>
+                            <li>Price: $@Model.Entrees[i].Price</li>
+                            <li>Calories: @Model.Entrees[i].Calories</li>
+                            <li>Ingredients: @string.Join(", ", Model.Entrees[i].Ingredients)</li>
+                        </ul>
+                    </div>
+                }
+            </div>
+
+
+            <h2>Sides</h2>
+            <div id="sides-list">
+                @for (int i = 0; i < @Model.Sides.Count; i++)
+                {
+                    <div class="menu-item">
+                        <h3>@Model.Sides[i].ToString()</h3>
+                        <ul>
+                            <li>Price: $@Model.Sides[i].Price</li>
+                            <li>Calories: @Model.Sides[i].Calories</li>
+                            <li>Ingredients: @string.Join(", ", Model.Sides[i].Ingredients)</li>
+                        </ul>
+                    </div>
+                }
+            </div>
+
+
+            <h2>Drinks</h2>
+            <div id="drinks-list">
+                @for (int i = 0; i < @Model.Drinks.Count; i++)
+                {
+                    <div class="menu-item">
+                        <h3>@Model.Drinks[i].ToString()</h3>
+                        <ul>
+                            <li>Price: $@Model.Drinks[i].Price</li>
+                            <li>Calories: @Model.Drinks[i].Calories</li>
+                            <li>Ingredients: @string.Join(", ", Model.Drinks[i].Ingredients)</li>
+                        </ul>
+                    </div>
+                }
+            </div>
         </div>
-    }
-</div>
 
+        <form method="post">
+            <input type="text" name="search" id="search" value="@Model.search" />
+            <input type="submit" value="Search and Filter" name="search" id="search" />
 
-<h2>Entrees</h2>
-<div id="entrees-list">
-    @for (int i = 0; i < @Model.Menu.AvailableEntrees.Count; i++)
-    {
-        <div class="menu-item">
-            <h3>@Model.Menu.AvailableEntrees[i].ToString()</h3>
-            <ul>
-                <li>Price: @Model.Menu.AvailableEntrees[i].Price</li>
-                <li>Calories: @Model.Menu.AvailableEntrees[i].Calories</li>
-                <li>Ingredients: @string.Join(", ", Model.Menu.AvailableEntrees[i].Ingredients)</li>
-            </ul>
-        </div>
-    }
-</div>
+            <h4>Menu Category</h4>
+            <div class="menu-category">
+                <label>
+                    <input type="checkbox" name="category" value="Combo" checked="@Model.Category.Contains("Combo")" />
+                    Combo
+                </label>
+                <label>
+                    <input type="checkbox" name="category" value="Entree" checked="@Model.Category.Contains("Entree")" />
+                    Entree
+                </label>
+                <label>
+                    <input type="checkbox" name="category" value="Side" checked="@Model.Category.Contains("Side")" />
+                    Side
+                </label>
+                <label>
+                    <input type="checkbox" name="category" value="Drink" checked="@Model.Category.Contains("Drink")" />
+                    Drink
+                </label>
+            </div>
 
+            <h4>Price</h4>
+            <label>
+                Minimum:
+                <input type="number" min="0" max="11" step="0.1" name="minimumPrice" id="minimum-price" value="@Model.minimumPrice" />
+            </label>
+            <label>
+                Maximum:
+                <input type="number" min="0" max="11" step="0.1" name="maximumPrice" id="maximum-price" value="@Model.maximumPrice" />
+            </label>
 
-<h2>Sides</h2>
-<div id="sides-list">
-    @for (int i = 0; i < @Model.Menu.AvailableSides.Count; i++)
-    {
-        <div class="menu-item">
-            <h3>@Model.Menu.AvailableSides[i].ToString()</h3>
-            <ul>
-                <li>Price: @Model.Menu.AvailableSides[i].Price</li>
-                <li>Calories: @Model.Menu.AvailableSides[i].Calories</li>
-                <li>Ingredients: @string.Join(", ", Model.Menu.AvailableSides[i].Ingredients)</li>
-            </ul>
-        </div>
-    }
-</div>
-
-
-<h2>Drinks</h2>
-<div id="drinks-list">
-    @for (int i = 0; i < @Model.Menu.AvailableDrinks.Count; i++)
-    {
-        <div class="menu-item">
-            <h3>@Model.Menu.AvailableDrinks[i].ToString()</h3>
-            <ul>
-                <li>Price: @Model.Menu.AvailableDrinks[i].Price</li>
-                <li>Calories: @Model.Menu.AvailableDrinks[i].Calories</li>
-                <li>Ingredients: @string.Join(", ", Model.Menu.AvailableDrinks[i].Ingredients)</li>
-            </ul>
-        </div>
-    }
-</div>
+            <h4>Exclude Ingredients</h4>
+            <div class="exclude-ingredients">
+                @foreach (string ingredient in @Model.Menu.AvailableIngredients)
+                {
+                    <label>
+                        <input type="checkbox" name="ingredient" value="@ingredient" checked="@Model.ingredient.Contains(ingredient)" />
+                    </label>
+                }
+            </div>
+        </form>
+    </div>

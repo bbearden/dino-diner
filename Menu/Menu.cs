@@ -65,11 +65,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// All available DinoDiner Entrees
         /// </summary>
-        public List<Entree> AvailableEntrees
+        public List<IMenuItem> AvailableEntrees
         {
             get
             {
-                List<Entree> availableEntrees = new List<Entree>();
+                List<IMenuItem> availableEntrees = new List<IMenuItem>();
                 foreach (IMenuItem menuItem in AvailableMenuItems)
                 {
                     if (menuItem is Entree)
@@ -84,11 +84,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// All available DinoDiner Sides
         /// </summary>
-        public List<Side> AvailableSides
+        public List<IMenuItem> AvailableSides
         {
             get
             {
-                List<Side> availableSides = new List<Side>();
+                List<IMenuItem> availableSides = new List<IMenuItem>();
                 foreach (IMenuItem menuItem in AvailableMenuItems)
                 {
                     if (menuItem is Side)
@@ -103,11 +103,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// All available DinoDiner Drinks
         /// </summary>
-        public List<Drink> AvailableDrinks
+        public List<IMenuItem> AvailableDrinks
         {
             get
             {
-                List<Drink> availableDrinks = new List<Drink>();
+                List<IMenuItem> availableDrinks = new List<IMenuItem>();
                 foreach (IMenuItem menuItem in AvailableMenuItems)
                 {
                     if (menuItem is Drink)
@@ -122,11 +122,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// All available DinoDiner Combos
         /// </summary>
-        public List<CretaceousCombo> AvailableCombos
+        public List<IMenuItem> AvailableCombos
         {
             get
             {
-                List<CretaceousCombo> availableCombos = new List<CretaceousCombo>();
+                List<IMenuItem> availableCombos = new List<IMenuItem>();
                 foreach(IMenuItem menuItem in AvailableMenuItems)
                 {
                     if(menuItem is Entree)
@@ -135,6 +135,29 @@ namespace DinoDiner.Menu
                     }
                 }
                 return availableCombos;
+            }
+        }
+
+        /// <summary>
+        /// all available ingredients on the menu
+        /// </summary>
+        public List<string> AvailableIngredients
+        {
+            get
+            {
+                List<string> availableIngredients = new List<string>();
+
+                foreach(IMenuItem item in AvailableMenuItems)
+                {
+                    for (int i = 0; i < item.Ingredients.Count; i++)
+                    {
+                        if (!availableIngredients.Contains(item.Ingredients[i]))
+                        {
+                            availableIngredients.Add(item.Ingredients[i]);
+                        }
+                    }
+                }
+                return availableIngredients;
             }
         }
 
