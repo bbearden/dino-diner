@@ -191,17 +191,26 @@ namespace Website.Pages
             return result;
         }
 
-
+        /// <summary>
+        /// filters by excluded ingredients
+        /// </summary>
+        /// <param name="category"></param>
+        /// <param name="excluded"></param>
+        /// <returns></returns>
         public static List<IMenuItem> FilterByExcludedIngredients(List<IMenuItem> category, List<string> excluded)
         {
             List<IMenuItem> result = new List<IMenuItem>();
 
             foreach(IMenuItem item in category)
             {
-                if (!excluded.Contains(item.Ingredients.ToString()))
+                for(int i = 0; i < item.Ingredients.Count; i++)
                 {
-                    result.Add(item);
+                    if (!excluded.Contains(item.Ingredients[i]))
+                    {
+                        result.Add(item);
+                    }
                 }
+                
             }
             return result;
         }

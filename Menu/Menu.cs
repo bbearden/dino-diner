@@ -141,7 +141,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// all available ingredients on the menu
         /// </summary>
-        public List<string> AvailableIngredients
+        public List<string> PossibleIngredients
         {
             get
             {

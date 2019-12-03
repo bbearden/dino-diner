@@ -30,7 +30,17 @@ form {
     padding: 50px;
 }
 
+form #commands{
+    position: absolute;
+    right: 0;
+}
+
 .checkbox-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.exclude-ingredients{
     display: flex;
     flex-direction: column;
 }
