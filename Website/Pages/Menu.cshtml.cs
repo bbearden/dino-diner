@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Menu.cshtml.cs
+ * Author: Branden Bearden
+ */ 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -205,9 +208,9 @@ namespace Website.Pages
             foreach(IMenuItem item in category)
             {
                 flag = false;
-                for(int i = 0; i < item.Ingredients.Count; i++)
+                for(int i = 0; i < excluded.Count; i++)
                 {
-                    if (item.Ingredients != null && excluded.Contains(item.Ingredients[i]))
+                    if (item.Ingredients.Contains(excluded[i]))
                     {
                         flag = true;
                     }
