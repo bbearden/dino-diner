@@ -199,16 +199,23 @@ namespace Website.Pages
         /// <returns></returns>
         public static List<IMenuItem> FilterByExcludedIngredients(List<IMenuItem> category, List<string> excluded)
         {
+            bool flag;
             List<IMenuItem> result = new List<IMenuItem>();
-
+            
             foreach(IMenuItem item in category)
             {
+                flag = false;
                 for(int i = 0; i < item.Ingredients.Count; i++)
                 {
-                    if (!excluded.Contains(item.Ingredients[i]))
+                    if (item.Ingredients != null && excluded.Contains(item.Ingredients[i]))
                     {
-                        result.Add(item);
+                        flag = true;
                     }
+                }
+
+                if (flag == false)
+                {
+                    result.Add(item);
                 }
                 
             }

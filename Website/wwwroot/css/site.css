@@ -23,6 +23,11 @@ body {
     width: 800px;
 }
 
+.menu-category{
+    display: flex;
+    flex-direction: column;
+}
+
 form {
     width: 200px;
     background-color: lightgray;

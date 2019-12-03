@@ -149,11 +149,11 @@ namespace DinoDiner.Menu
 
                 foreach(IMenuItem item in AvailableMenuItems)
                 {
-                    for (int i = 0; i < item.Ingredients.Count; i++)
+                    foreach(string ingredient in item.Ingredients)
                     {
-                        if (!availableIngredients.Contains(item.Ingredients[i]))
+                        if (!availableIngredients.Contains(ingredient))
                         {
-                            availableIngredients.Add(item.Ingredients[i]);
+                            availableIngredients.Add(ingredient);
                         }
                     }
                 }
